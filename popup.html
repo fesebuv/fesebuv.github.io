@@ -10,6 +10,8 @@ hi this is a pop up
 <br/>
 <a onclick="alert('this is an alert... ');">Alert Me</a>
 
+<button onclick="forceClose()">force close</button>
+
 <script>
 function closeWindow(){
   try{
@@ -31,7 +33,17 @@ function closeWindow(){
 }
 
 
-
+function forceClose(){
+  if (top.opener.top.opener!=null){
+    top.opener.top.opener.location.reload();
+    top.opener.top.close()
+    top.window.close()
+  }
+  else{
+    top.opener.location.reload();
+    top.window.close();
+  }
+}
 
 
 </script>
