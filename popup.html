@@ -20,13 +20,24 @@ hi this is a pop up
 <br/>
 <!--<input type="button" name="Quit" id="Quit" value="Quit" onclick="return quitBox('quit');" />-->
 
-<button onclick="forceClose()"> close</button>
+<button onclick="tryClose()"> try close</button>
 
 
-<br/>
-<a href="/mobile/close">Close</a>
+<!--<br/>-->
+<!--<a href="/mobile/close">Close</a>-->
 
-<a href="javascript:closeWindow()">close me please</a>
+<!--<a href="javascript:closeWindow()">close me please</a>-->
+
+
+<script>
+  
+  function tryClose(){
+    window.postMessage("hi there yourself!  the secret response " +
+                           "is: rheeeeet!",
+                           "http://fesebuv.github.io");
+  }
+  
+</script>
 
 <script>
 function closeWindow(){
