@@ -27,6 +27,7 @@ function closeWindow(){
 
 (function(){
   var links = document.getElementsByTagName('a');
+  console.info(links);
 for (i=0; i<links.length; i++){
     console.info(links[i].target);
     links[i].target='_self';
