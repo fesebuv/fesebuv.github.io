@@ -1,18 +1,34 @@
 Hello World
 
 
-<a href="#" onclick="openWindow()" target="_blank">Pop Up Window</a>
+<button onclick="openWindow()" target="_blank">Pop Up Window</button>
 
 
 <script>
 
   function openWindow(){
     var ref = window.open('popup.html', '_blank');
-    ref.addEventListener('loadstop', function(event) {        
-      if (event.url.match("mobile/close")) {
-        ref.close();
-      }
-    });
+    // ref.addEventListener('loadstop', function(event) {        
+    //   if (event.url.match("mobile/close")) {
+    //     ref.close();
+    //   }
+    // });
   }
   
+</script>
+
+<script>
+function receiveMessage(event){
+  // Do we trust the sender of this message?  (might be
+  // different from what we originally opened, for example).
+  if (event.origin !== "http://fesebuv.github.io/")
+    return;
+
+  // event.source is popup
+  // event.data is "hi there yourself!  the secret response is: rheeeeet!"
+  
+  console.info(event.data);
+  
+}
+  window.addEventListener("message", receiveMessage, false);
 </script>
