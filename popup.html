@@ -25,18 +25,23 @@ function closeWindow(){
 }
 
 
-(function(){
-  var links = document.getElementsByTagName('a');
-  console.info(links);
-for (i=0; i<links.length; i++){
-    console.info(links[i].target);
-    links[i].target='_self';
-    console.warn(links[i].target);
-}
+
+
+
+</script>
+
+<script>
+  (function(){
+    var links = document.getElementsByTagName('a');
+    console.info(links);
+    console.info(links.length);
+    for (var i=0; i<links.length; i++){
+      console.info(links[i].target);
+      links[i].target='_self';
+      console.warn(links[i].target);
+    }
   
-})();
-
-
+  })();
 </script>
 
 </body>
