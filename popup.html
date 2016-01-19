@@ -33,7 +33,7 @@ hi this is a pop up
   
   function tryClose(){
     window.addEventListener('message',function(event) {
-	if(event.origin !== 'http://fesebug.github.io') return;
+	if(event.origin !== 'http://fesebuv.github.io') return;
 	console.log('message received:  ' + event.data,event);
 	event.source.postMessage('close',event.origin);
 	},false);
