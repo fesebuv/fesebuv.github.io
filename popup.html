@@ -26,7 +26,7 @@ hi this is a pop up
 <br/>
 <a href="/mobile/close">Close</a>
 
-<a href="javascript:self.close()">close me please</a>
+<a href="javascript:closeWindow()">close me please</a>
 
 <script>
 function closeWindow(){
@@ -104,5 +104,13 @@ function forceClose(){
 
 </script>
 
+
+<script language="javascript" type="text/javascript"> 
+function closeWindow() { 
+
+window.open('','_parent',''); 
+window.close(); 
+} 
+</script>
 
 </body>
