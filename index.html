@@ -18,9 +18,19 @@ Hello World
 </script>
 
 <script>
+var domain = 'http://fesebuv.github.io';
+
+
+//periodical message sender
+window.setInterval(function(){
+	var message = 'Hello!  The time is: ' + (new Date().getTime());
+	console.log('blog.local:  sending message:  ' + message);
+	myPopup.postMessage(message,domain); //send the message and target URI
+},600);
+
+//listen to holla back
 window.addEventListener('message',function(event) {
-  console.info('origin: %s', event.origin);
-	if(event.origin !== 'http://fesebuv.github.io') return;
+	if(event.origin !== domain) return;
 	console.log('received response:  ',event.data);
 },false);
 </script>
