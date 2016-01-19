@@ -5,29 +5,28 @@ Hello World
 
 
 <script>
-	var ref;
+  var ref;	
   function openWindow(){
     ref = window.open('popup.html', '_blank');
-    // ref.addEventListener('loadstop', function(event) {        
-    //   if (event.url.match("mobile/close")) {
-    //     ref.close();
-    //   }
-    // });
+    setMessage();
   }
   
 </script>
 
 <script>
+
+function setMessage(){
 var domain = 'http://fesebuv.github.io';
 
 
 //periodical message sender
-if(undefined !== ref){
+
 window.setInterval(function(){
 	var message = 'Hello!  The time is: ' + (new Date().getTime());
 	console.log('blog.local:  sending message:  ' + message);
 	ref.postMessage(message,domain); //send the message and target URI
 },600);
+
 }
 
 //listen to holla back
