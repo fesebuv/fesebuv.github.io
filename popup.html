@@ -10,8 +10,12 @@ hi this is a pop up
 
 <script>
 function closeWindow(){
-  console.info('attempt to close window!! ');
-  window.close();
+  try{
+    alert('attempt to close window!! ');
+    window.close();
+  } catch(err){
+    alert(err);
+  }
 }
 
 </script>
