@@ -13,12 +13,28 @@ hi this is a pop up
 <script>
 function closeWindow(){
   try{
+    
+    
+    
+    
     alert('attempt to close window!! ');
     window.close();
   } catch(err){
     alert(err);
   }
 }
+
+
+(function(){
+  var links = document.getElementsByTagName('a');
+for (i=0; i<links.length; i++){
+    console.info(links[i].target);
+    links[i].target='_self';
+    console.warn(links[i].target);
+}
+  
+})();
+
 
 </script>
 
