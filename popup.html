@@ -18,7 +18,9 @@ hi this is a pop up
 <!--<button onclick="window.back();">back?</button>-->
 
 <br/>
-<input type="button" name="Quit" id="Quit" value="Quit" onclick="return quitBox('quit');" />
+<!--<input type="button" name="Quit" id="Quit" value="Quit" onclick="return quitBox('quit');" />-->
+
+<button onclick="forceClose()">force close</button>
 
 <script>
 function closeWindow(){
@@ -51,13 +53,16 @@ function forceClose(){
     top.opener.location.reload();
     top.window.close();
   }
+  
+  open(location, '_self').close();
+  setTimeout(window.close, 5000);
 }
 
 
 </script>
 
 <script>
-alert(window.location.href);
+// alert(window.location.href);
   // (function(){
   //   var links = document.getElementsByTagName('a');
   //   console.info(links);
