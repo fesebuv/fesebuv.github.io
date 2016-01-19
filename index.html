@@ -5,7 +5,8 @@ Hello World
 
 
 <script>
-  var ref;	
+  var ref;
+  var interval;
   function openWindow(){
     ref = window.open('popup.html', '_blank');
     setMessage();
@@ -21,7 +22,7 @@ var domain = 'http://fesebuv.github.io';
 
 //periodical message sender
 
-var interval = window.setInterval(function(){
+interval = window.setInterval(function(){
 	var message = 'Hello!  The time is: ' + (new Date().getTime());
 	console.log('blog.local:  sending message:  ' + message);
 	ref.postMessage(message,domain); //send the message and target URI
