@@ -21,7 +21,7 @@ var domain = 'http://fesebuv.github.io';
 
 //periodical message sender
 
-window.setInterval(function(){
+var interval = window.setInterval(function(){
 	var message = 'Hello!  The time is: ' + (new Date().getTime());
 	console.log('blog.local:  sending message:  ' + message);
 	ref.postMessage(message,domain); //send the message and target URI
@@ -34,5 +34,6 @@ window.addEventListener('message',function(event) {
 	if(event.origin !== 'http://fesebuv.github.io') return;
 	console.log('received response:  ',event.data);
 	ref.close();
+	window.clearInterval(interval);
 },false);
 </script>
