@@ -18,12 +18,13 @@ function closeWindow(){
     
     
     alert('attempt to close window!! ');
-    window.close();
+    
     window.setTimeout(function(){
       alert('lets try this again');
       self.close();
       alert('awersome!');
     },500);
+    window.close();
   } catch(err){
     alert(err);
   }
@@ -36,6 +37,7 @@ function closeWindow(){
 </script>
 
 <script>
+alert(window.location.href);
   (function(){
     var links = document.getElementsByTagName('a');
     console.info(links);
