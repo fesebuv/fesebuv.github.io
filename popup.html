@@ -32,11 +32,11 @@ hi this is a pop up
 <script>
   
   function tryClose(){
-    window.setInterval(function(){
-	   var message = 'Hello!  The time is: ' + (new Date().getTime());
-	   console.log('blog.local:  sending message:  ' + message);
-	   window.postMessage(message,'http://fesebuv.github.io'); //send the message and target URI
-      },6000);
+    window.addEventListener('message',function(event) {
+	if(event.origin !== 'http://davidwalsh.name') return;
+	console.log('message received:  ' + event.data,event);
+	event.source.postMessage('close',event.origin);
+	},false);
   }
   
 </script>
