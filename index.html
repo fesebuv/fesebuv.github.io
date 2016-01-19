@@ -18,20 +18,9 @@ Hello World
 </script>
 
 <script>
-function receiveMessage(event){
-  // Do we trust the sender of this message?  (might be
-  // different from what we originally opened, for example).
-  
-  console.info(event);
-  
-  if (event.origin !== "http://fesebuv.github.io/")
-    return;
-
-  // event.source is popup
-  // event.data is "hi there yourself!  the secret response is: rheeeeet!"
-  
-  console.info(event.data);
-  
-}
-  window.addEventListener("message", receiveMessage, false);
+window.addEventListener('message',function(event) {
+  console.info('origin: %s', event.origin);
+	if(event.origin !== 'http://scriptandstyle.com') return;
+	console.log('received response:  ',event.data);
+},false);
 </script>
