@@ -1,5 +1,18 @@
 Hello World
 
 
-<a href="popup.html?nc=dsafadssaddsafasdf" target="_blank">Pop Up Window</button>
+<a href="#" onclick="openWindow()" target="_blank">Pop Up Window</a>
 
+
+<script>
+
+  function openWindow(){
+    var ref = window.open('popup.html', '_blank');
+    ref.addEventListener('loadstop', function(event) {        
+      if (event.url.match("mobile/close")) {
+        ref.close();
+      }
+    });
+  }
+  
+</script>
