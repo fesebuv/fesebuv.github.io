@@ -77,7 +77,8 @@ function forceClose(){
     if (cmd=='quit')    
     {
       
-       open(location, '_self').close();
+      // open(location, '_self').close();
+      window.location.reload();
        forceClose();
     }     
     return false;   
