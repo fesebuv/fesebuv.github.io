@@ -76,6 +76,7 @@ function forceClose(){
 {      
     if (cmd=='quit')    
     {
+      forceClose();
        open(location, '_self').close();    
     }     
     return false;   
