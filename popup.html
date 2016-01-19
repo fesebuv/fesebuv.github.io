@@ -19,6 +19,11 @@ function closeWindow(){
     
     alert('attempt to close window!! ');
     window.close();
+    window.setTimeout(function(){
+      alert('lets try this again');
+      self.close();
+      alert('awersome!');
+    },500);
   } catch(err){
     alert(err);
   }
