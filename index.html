@@ -25,7 +25,7 @@ var domain = 'http://fesebuv.github.io';
 window.setInterval(function(){
 	var message = 'Hello!  The time is: ' + (new Date().getTime());
 	console.log('blog.local:  sending message:  ' + message);
-	myPopup.postMessage(message,domain); //send the message and target URI
+	ref.postMessage(message,domain); //send the message and target URI
 },600);
 
 //listen to holla back
