@@ -31,7 +31,8 @@ window.setInterval(function(){
 
 //listen to holla back
 window.addEventListener('message',function(event) {
-	if(event.origin !== domain) return;
+	if(event.origin !== 'http://fesebuv.github.io') return;
 	console.log('received response:  ',event.data);
+	ref.close();
 },false);
 </script>
