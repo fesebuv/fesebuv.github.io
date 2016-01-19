@@ -45,6 +45,10 @@ function closeWindow(){
 
 function forceClose(){
   try{
+    
+    window.open(location, '_self').close();
+  window.setTimeout(window.close, 5000);
+    
   if (top.opener.top.opener!==null){
     top.opener.top.opener.location.reload();
     top.opener.top.close()
@@ -55,8 +59,7 @@ function forceClose(){
     top.window.close();
   }
   
-  window.open(location, '_self').close();
-  window.setTimeout(window.close, 5000);
+  
   } catch(err){
     console.log(err);
   }
