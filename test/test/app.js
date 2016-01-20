@@ -37,7 +37,7 @@ var app = angular.module('myApp', [])
 			// 'text': 'ecuador',
 			// 'is_getty': 'true',
 			// 'tags':'ecuador, futbol, eliminatorias',
-			'tags': 'ecuador, soccer, qualifiers',
+			'tags': 'ecuador, soccer, qualifiers, worldcup',
 			'tag_mode': 'all',
 			'safe_search': '1',
 			'per_page':'10',
