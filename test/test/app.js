@@ -38,7 +38,7 @@ var app = angular.module('myApp', [])
 			// 'is_getty': 'true',
 			// 'tags':'ecuador, futbol',
 			//'tags': 'ecuador, soccer, qualifiers, worldcup',
-			'tags':'ecuvsarg',
+			'tags':'ecuador, ecuvsarg',
 			'tag_mode': 'all',
 			'safe_search': '1',
 			'per_page':'10',
