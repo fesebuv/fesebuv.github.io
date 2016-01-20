@@ -35,6 +35,7 @@ var app = angular.module('myApp', [])
 			'page' : $scope.page,
 			'tags': 'soccer, futbol, football, latri, qualifiers, eliminatorias',
 			'text': 'ecuador',
+			'is_getty': 'true',
 			'safe_search': '1',
 			'per_page':'10',
 			'extras': 'url_o, url_s, url_n, url_z',
