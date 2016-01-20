@@ -33,7 +33,7 @@ var app = angular.module('myApp', [])
 		var params = {
 			'method': 'flickr.photos.search',
 			'page' : $scope.page,
-			'tags': 'soccer, futbol, football, latri',
+			'tags': 'soccer, futbol, football, latri, qualifiers, eliminatorias',
 			'text': 'ecuador',
 			'safe_search': '1',
 			'per_page':'10',
