@@ -33,8 +33,9 @@ var app = angular.module('myApp', [])
 		var params = {
 			'method': 'flickr.photos.search',
 			'page' : $scope.page,
-			'tags': 'soccer',
+			'tags': 'soccer, futbol, football',
 			'text': 'soccer',
+			'title': 'ecuador',
 			'per_page':'10',
 			'extras': 'url_o, url_s, url_n, url_z',
 			'media': 'photos',
