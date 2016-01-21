@@ -20,7 +20,9 @@ hi this is a pop up
 <br/>
 <!--<input type="button" name="Quit" id="Quit" value="Quit" onclick="return quitBox('quit');" />-->
 
-<button onclick="tryClose()"> try close??</button>
+<!--<button onclick="tryClose()"> try close??</button>-->
+
+<button onclick="iOSClose()"></button>
 
 
 <!--<br/>-->
@@ -30,6 +32,11 @@ hi this is a pop up
 
 
 <script>
+  
+  function iOSClose(){
+  	window.setTimeout(window.close, 300);
+  }
+  
   
   function tryClose(){
     window.addEventListener('message',function(event) {
