@@ -102,6 +102,14 @@
     });
   }
   
+  function testLogout(){
+    FB.logout(function(response){
+      // Handle the response object, like in statusChangeCallback() in our demo
+      // code.
+      console.info(response);
+    });
+  }
+  
   
 </script>
 
@@ -112,6 +120,14 @@
   the FB.login() function when clicked.
 -->
 
+<button onclick="testLogin()">facebook login</button>
+
+<br>
+
+<button onclick="FB.testLogout()">facebook logout</button>
+
+<br><br><br><br><br>
+
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
@@ -120,11 +136,7 @@
 <div id="status">
 </div>
 
-<button onclick="testLogin()">facebook login</button>
 
-<br>
-
-<button onclick="FB.logout()">facebook logout</button>
 
 </body>
 </html>
