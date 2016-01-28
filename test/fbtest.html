@@ -86,25 +86,17 @@
   }
 </script>
 
-<script>
-  (function(){
-    window.setTimeout(function(){
-      alert('test..');
-      testAPI();
-    },2000);
-    
-  })();
-</script>
+
 
 
 <script>
   
   function testLogin(){
     FB.login(function(response){
-    // Handle the response object, like in statusChangeCallback() in our demo
-    // code.
-    console.info(response);
-  });
+      // Handle the response object, like in statusChangeCallback() in our demo
+      // code.
+      console.info(response);
+    });
   }
   
   
