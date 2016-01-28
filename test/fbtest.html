@@ -96,6 +96,21 @@
   })();
 </script>
 
+
+<script>
+  
+  function testLogin(){
+    FB.login(function(response){
+    // Handle the response object, like in statusChangeCallback() in our demo
+    // code.
+    console.info(response);
+  });
+  }
+  
+  
+</script>
+
+
 <!--
   Below we include the Login Button social plugin. This button uses
   the JavaScript SDK to present a graphical Login button that triggers
@@ -107,6 +122,8 @@
 
 <div id="status">
 </div>
+
+<button onclick="testLogin()">facebook</button>
 
 </body>
 </html>
