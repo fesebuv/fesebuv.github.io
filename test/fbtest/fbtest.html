@@ -149,6 +149,11 @@
   function closeMe(){
     try{
     window.close();
+    
+      window.setTimeout(function(){
+        window.history.go(-1);
+      }, 500);
+    
     } catch(err){
       alert(err.name);
       alert(err.message);
