@@ -139,7 +139,23 @@
 <div id="status">
 </div>
 
+<br><br><br><br><br>
+<button onclick="closeMe()">Close me</button>
 
+
+
+<script>
+  
+  function closeMe(){
+    try{
+    window.close();
+    } catch(err){
+      alert(err.name);
+      alert(err.message);
+    }
+  }
+  
+</script>
 
 </body>
 </html>
