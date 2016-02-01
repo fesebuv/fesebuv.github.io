@@ -3,6 +3,7 @@
 <head>
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -15,11 +16,31 @@
 
 <br><br><br><br><br>
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;"></div>
+        <div class="modal-body" style="padding:40px 50px;">
+          body of modal
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div> 
 
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>
 
 function openModal(){
     console.info('open that modal');
+    $("#myModal").modal();
 }
 
 function openWindow(){
