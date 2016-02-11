@@ -40,15 +40,17 @@
  }
 
  window.fbAsyncInit = function() {
-   FB.init({
-     // appId      : '1488704804758806',
-     // appId      : '1670352679887073',
-     appId: null,
-     cookie: true, // enable cookies to allow the server to access the session
-     //xfbml: true, // parse social plugins on this page
-     xfbml:false,
-     version: 'v2.2' // use version 2.2
-   });
+   // FB.init({
+   //   // appId      : '1488704804758806',
+   //   // appId      : '1670352679887073',
+   //   appId: null,
+   //   cookie: true, // enable cookies to allow the server to access the session
+   //   //xfbml: true, // parse social plugins on this page
+   //   xfbml:false,
+   //   version: 'v2.2' // use version 2.2
+   // });
+   
+   FB.init();
 
    // Now that we've initialized the JavaScript SDK, we call 
    // FB.getLoginStatus().  This function gets the state of the
@@ -59,7 +61,7 @@
    // 2. Logged into Facebook, but not your app ('not_authorized')
    // 3. Not logged into Facebook and can't tell if they are logged into
    //    your app or not.
-   //
+   //fb
    // These three cases are handled in the callback function.
 
    FB.getLoginStatus(function(response) {
