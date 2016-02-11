@@ -9,7 +9,7 @@
 <body>
 
 
-
+<button onclick="testLogin()">test login</button>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -20,7 +20,15 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-
+<script>
+  function testLogin(){
+    FB.login(function(response){
+      // Handle the response object, like in statusChangeCallback() in our demo
+      // code.
+      console.info(response);
+    });
+  }
+</script>
 
 </body>
 </html>
