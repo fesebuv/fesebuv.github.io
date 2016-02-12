@@ -115,8 +115,12 @@ function testAPI() {
     function testLogin() {
   alert('login atttempt! ');
   FB.getLoginStatus(function(response) {
-    response.status;
+    
+    alert(response.status);
   });
+  window.setTimeout(function(){
+   
+  
   FB.login(function(response) {
     if (response.authResponse) {
       alert('Success!');
@@ -126,6 +130,8 @@ function testAPI() {
   }, {
     scope: 'email'
   });
+  
+  },500);
 }
 
   
