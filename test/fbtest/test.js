@@ -1,7 +1,7 @@
 function testLogin() {
     FB.login();
 
-    var uri = 'fesebuv.github.io';
+    var uri = 'https://fesebuv.github.io';
     var appId = '1670352679887073';
 
     console.log('login atttempt! ');
@@ -12,7 +12,7 @@ function testLogin() {
         FB.login(function(response) {
             if (response.authResponse) {
                 alert('Success!');
-                window.location.href = 'https://fesebuv.github.io';
+                window.location.href = uri;
             } else {
                 alert('Login Failed!');
             }
