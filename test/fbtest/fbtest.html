@@ -125,6 +125,7 @@ function testAPI() {
   FB.login(function(response) {
     if (response.authResponse) {
       alert('Success!');
+      window.location.href = 'https://fesebuv.github.io';
     } else {
       alert('Login Failed!');
     }
