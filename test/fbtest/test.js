@@ -5,15 +5,10 @@ function testLogin() {
 
     console.log('login atttempt! ');
 
-    // window.open(encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token"));
 
 
-    var relocate = new Promise(function() {
-        window.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token");
-
-    });
-
-    relocate.then(function() {
+    window.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token");
+    window.setTimeout(function() {
         FB.login(function(response) {
             if (response.authResponse) {
                 alert('Success!');
@@ -22,9 +17,7 @@ function testLogin() {
                 alert('Login Failed!');
             }
         });
-    });
-
-
+    }, 1000);
 
 
 }
