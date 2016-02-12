@@ -8,6 +8,18 @@ function testLogin() {
     window.open(encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token"));
 
 
+}
+
+function testLogin1() {
+
+    var uri = 'https://fesebuv.github.io';
+    var appId = '1670352679887073';
+
+    console.log('login atttempt! ');
+
+    window.open(encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token"));
+
+
     try {
 
         window.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token");
