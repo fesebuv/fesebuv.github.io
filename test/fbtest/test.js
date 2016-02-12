@@ -5,16 +5,27 @@ function testLogin() {
 
     console.log('login atttempt! ');
 
-    window.open(encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token"));
+    // window.open(encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token"));
 
 
-    var interval = window.setInterval(function() {
-
+    var relocate = new Promise(function() {
         window.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token");
 
-        console.info('failed to relocate!')
+    });
 
-    }, 500);
+    relocate.then(function() {
+        FB.login(function(response) {
+            if (response.authResponse) {
+                alert('Success!');
+                window.location.href = uri;
+            } else {
+                alert('Login Failed!');
+            }
+        });
+    });
+
+
+
 
 }
 
