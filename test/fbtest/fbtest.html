@@ -112,6 +112,9 @@ function testAPI() {
     // });
     
     function login() {
+     FB.getLoginStatus(function(response) {
+        response.status;
+    });
         FB.login(function(response) {
             if (response.authResponse) {
                 alert('Success!');
