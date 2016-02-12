@@ -113,17 +113,21 @@ function testAPI() {
     // });
     
     function login() {
-     FB.getLoginStatus(function(response) {
-        response.status;
-    });
-        FB.login(function(response) {
-            if (response.authResponse) {
-                alert('Success!');
-            }else{
-                alert('Login Failed!');
-            }
-        }, {scope: 'email'});
-  }
+  alert('login atttempt! ');
+  FB.getLoginStatus(function(response) {
+    response.status;
+  });
+  FB.login(function(response) {
+    if (response.authResponse) {
+      alert('Success!');
+    } else {
+      alert('Login Failed!');
+    }
+  }, {
+    scope: 'email'
+  });
+}
+
   
   function testLogout(){
     FB.logout(function(response){
