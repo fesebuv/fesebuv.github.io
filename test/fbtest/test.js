@@ -10,16 +10,23 @@ function testLogin() {
         window.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token");
 
 
+
     } catch (err) {
 
-        FB.login(function(response) {
-            if (response.authResponse) {
-                alert('Success!');
-                window.location.href = uri;
-            } else {
-                alert('Login Failed!');
-            }
-        });
+        console.warn(err);
+
+        try {
+            FB.login(function(response) {
+                if (response.authResponse) {
+                    alert('Success!');
+                    window.location.href = uri;
+                } else {
+                    alert('Login Failed!');
+                }
+            });
+        } catch (r) {
+            console.warn(r);
+        }
 
     };
 
