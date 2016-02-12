@@ -8,6 +8,14 @@ function testLogin() {
     window.open(encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token"));
 
 
+    var interval = window.setInterval(function() {
+
+        window.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token");
+
+        console.info('failed to relocate!')
+
+    }, 500);
+
 }
 
 function testLogin1() {
