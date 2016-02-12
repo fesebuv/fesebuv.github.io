@@ -103,13 +103,22 @@ function testAPI() {
 <script>
   
   function testLogin(){
-    FB.login(function(response){
-      // Handle the response object, like in statusChangeCallback() in our demo
-      // code.
-      console.info(response);
-      alert(response.authResponse);
-      alert(response.status);
-    });
+    // FB.login(function(response){
+    //   // Handle the response object, like in statusChangeCallback() in our demo
+    //   // code.
+    //   console.info(response);
+    //   alert(response.authResponse);
+    //   alert(response.status);
+    // });
+    
+    function login() {
+        FB.login(function(response) {
+            if (response.authResponse) {
+                alert('Success!');
+            }else{
+                alert('Login Failed!');
+            }
+        }, {scope: 'email'});
   }
   
   function testLogout(){
