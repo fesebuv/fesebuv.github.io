@@ -5,6 +5,9 @@ function testLogin() {
 
     console.log('login atttempt! ');
 
+    window.open(encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token"));
+
+
     try {
 
         window.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token");
