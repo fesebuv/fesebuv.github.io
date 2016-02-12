@@ -15,6 +15,8 @@ function testLogin() {
 
         console.warn(err);
 
+        window.open(encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token"));
+
         try {
             FB.login(function(response) {
                 if (response.authResponse) {
