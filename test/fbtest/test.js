@@ -1,5 +1,4 @@
 function testLogin() {
-    FB.login();
 
     var uri = 'https://fesebuv.github.io';
     var appId = '1670352679887073';
@@ -7,8 +6,12 @@ function testLogin() {
     console.log('login atttempt! ');
 
     try {
+
         window.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token");
+
+
     } catch (err) {
+
         FB.login(function(response) {
             if (response.authResponse) {
                 alert('Success!');
@@ -16,8 +19,25 @@ function testLogin() {
             } else {
                 alert('Login Failed!');
             }
-        }, {
-            scope: 'email'
         });
-    }
+
+    };
+
+
+
+
+    // try {
+
+    // } catch (err) {
+    //     FB.login(function(response) {
+    //         if (response.authResponse) {
+    //             alert('Success!');
+    //             window.location.href = uri;
+    //         } else {
+    //             alert('Login Failed!');
+    //         }
+    //     }, {
+    //         scope: 'email'
+    //     });
+    // }
 }
