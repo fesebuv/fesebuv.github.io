@@ -5,11 +5,12 @@ function testLogin() {
 
     console.log('login atttempt! ');
 
-
+    var fbLogin = false;
 
     window.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token");
     window.setTimeout(function() {
         FB.login(function(response) {
+            fbLogin = true;
             if (response.authResponse) {
                 alert('Success!');
                 window.location.href = uri;
@@ -18,6 +19,12 @@ function testLogin() {
             }
         });
     }, 1000);
+
+    window.setTimeout(function() {
+        if (!fbLogin) {
+            window.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=" + uri + "&response_type=token");
+        }
+    }, 2000);
 
 
 }
