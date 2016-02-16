@@ -12,7 +12,7 @@ function testLogin(){
                 window.location.href = uri;
             } else if (response.status === 'not_authorized') {
                 
-                window.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&redirect_uri="+uri+"&response_type=token");
+                window.top.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&redirect_uri="+uri+"&response_type=token");
                 alert('Please log into this app.');
             } else {
                 // The person is not logged into Facebook, so we're not sure if
