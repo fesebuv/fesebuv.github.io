@@ -14,6 +14,33 @@ function testLogin(){
                 // Logged into your app and Facebook.
                 // testAPI();
                 window.location.href = uri;
+            } else {
+                alert('Please log into this app.' + 'not_autorized');
+                window.top.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&redirect_uri="+uri+"&response_type=token");
+                
+            } 
+            
+        });
+    
+}
+
+
+function testLogin___(){
+    // var uri = 'https://fesebuv.github.io';
+    var uri = 'https://stag-cnid.condenastdigital.com/auth/facebook?brand=com.condenet.traveler&originalHost=localhost%3A9001&flow=auth&regSrc=CNEE_GLM&clientUrl=http%3A%2F%2Flocalhost%3A9001%2F%3Frandom%3D0.8816532542755882%26domain%3Dhttp%3A%2F%2Flocalhost%3A8080%26regPath%3Dauth%26regSrc%3DCNEE_GLM%26brandUrl%3Dhttp%3A%2F%2Flocalhost%3A8080%2Fadmin%2Fpostmessage.html%26referralDomain%3Dlocalhost%26updateToken%3D%26resetToken%3D%26token%3D%23com.condenet.traveler%2Ffblogin';
+    // var appId = '1670352679887073';
+    
+    // traveler
+    var appId = '1501816783447608';
+    
+    
+    
+    FB.getLoginStatus(function(response){
+            
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                // testAPI();
+                window.location.href = uri;
             } else if (response.status === 'not_authorized') {
                 
                 window.top.location.href = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&redirect_uri="+uri+"&response_type=token");
