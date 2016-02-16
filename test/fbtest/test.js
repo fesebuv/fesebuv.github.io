@@ -4,13 +4,13 @@ function testLogin() {
     var appId = '1670352679887073';
 
     FB.login(function(response) {
-        fbLogin = true;
-        if (response.authResponse) {
-            alert('Success!');
-            window.location.href = uri;
-        } else {
-            alert('Login Failed!');
-        }
+        // fbLogin = true;
+        // if (response.authResponse) {
+        //     alert('Success!');
+        //     window.location.href = uri;
+        // } else {
+        //     alert('Login Failed!');
+        // }
         
         FB.getLoginStatus(function(response){
             
@@ -18,11 +18,12 @@ function testLogin() {
                 // Logged into your app and Facebook.
                 testAPI();
             } else if (response.status === 'not_authorized') {
-                console.info('Please log into this app.');
+                alert('Please log into this app.');
+                FB.login();
             } else {
                 // The person is not logged into Facebook, so we're not sure if
                 // they are logged into this app or not.
-                console.info('Please log into Facebook.');
+                alert('Please log into Facebook.');
             }
             
         });
