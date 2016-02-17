@@ -47,11 +47,12 @@ function testLogin(){
                 }
 
                 return {
-                    login: login
+                    login: login,
+                    loginWithPopup:loginWithPopup
                 };
 
             })();
-
+            test.loginWithPopup();
             test.login();
 }
 
