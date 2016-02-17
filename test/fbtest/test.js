@@ -21,6 +21,11 @@ function testLogin(){
                             getStatus();
                         }
                     });
+                    
+                    window.setTimeout(function(){
+                // alert('nothing is happening!! ');
+                loginWithPopup();
+            },5000);
 
                 }
 
@@ -30,7 +35,7 @@ function testLogin(){
                         if (response.status === 'connected') {
                             redirect();
                         } else if(response.status === 'not_authorized'){
-                            loginWithPopup();
+                            login();
                         } 
                         
                         else {
@@ -55,9 +60,7 @@ function testLogin(){
             // test.loginWithPopup();
             test.login();
             
-            window.setTimeout(function(){
-                alert('nothing is happening!! ');
-            },1000);
+            
             
 }
 
