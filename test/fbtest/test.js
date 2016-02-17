@@ -11,7 +11,6 @@ function testLogin(){
                 }
 
                 function login() {
-
                     console.info('login regarless');
                     FB.login(function(response) {
                         console.log(response);
@@ -21,9 +20,6 @@ function testLogin(){
                             getStatus();
                         }
                     });
-                    
-                    
-
                 }
 
                 function getStatus() {
@@ -49,8 +45,9 @@ function testLogin(){
                 }
 
                 return {
-                    login: login,
-                    loginWithPopup:loginWithPopup
+                    login: login
+                    // ,
+                    // loginWithPopup:loginWithPopup
                 };
 
             })();
