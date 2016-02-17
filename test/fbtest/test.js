@@ -1,4 +1,43 @@
-function testLogin(){
+function testLogin() {
+  var test = (function () {
+    function login() {
+      FB.login(function (response) {
+        statusChangeCallback(response);
+      });
+    }
+    function statusChangeCallback(response) {
+      console.log('statusChangeCallback');
+      console.log(response);
+      // The response object is returned with a status field that lets the
+      // app know the current login status of the person.
+      // Full docs on the response object can be found in the documentation
+      // for FB.getLoginStatus().
+      if (response.status === 'connected') {
+        alert('redirect!');
+      } else if (response.status === 'not_authorized') {
+        alert('Please log ' + response.status + ' into this app.');
+        login();
+      } else {
+        // The person is not logged into Facebook, so we're not sure if
+        // they are logged into this app or not.
+        alert('Please log ' + response.status + 'into Facebook.');
+        login();
+      }
+    }
+    function checkLoginState() {
+      FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
+      });
+    }
+    return {
+      checkLoginState: checkLoginState
+    };
+  }) ();
+  test.checkLoginState();
+}
+
+
+function testLogin_1(){
     var test = (function() {
 
                 function loginWithPopup(){
