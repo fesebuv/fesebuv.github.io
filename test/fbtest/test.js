@@ -1,4 +1,5 @@
 function testLogin() {
+  
   var test = (function () {
     function login() {
       FB.login(function (response) {
