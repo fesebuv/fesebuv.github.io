@@ -2,9 +2,13 @@ function testLogin() {
   
   var test = (function () {
     function login() {
-      FB.login(function (response) {
-        statusChangeCallback(response);
-      });
+      FB.login(function(response) {
+                        if (response.authResponse) {
+                            redirect();
+                        } else {
+                            console.info('user has cancelled the login!');
+                        }
+                    });
     }
     function statusChangeCallback(response) {
       console.log('statusChangeCallback');
@@ -14,7 +18,7 @@ function testLogin() {
       // Full docs on the response object can be found in the documentation
       // for FB.getLoginStatus().
       if (response.status === 'connected') {
-        alert('redirect!');
+        redirect();
       } else if (response.status === 'not_authorized') {
         alert('Please log ' + response.status + ' into this app.');
         login();
@@ -29,6 +33,10 @@ function testLogin() {
       FB.getLoginStatus(function (response) {
         statusChangeCallback(response);
       });
+    }
+    
+    function redirect(){
+      alert('redirect')!
     }
     return {
       checkLoginState: checkLoginState
