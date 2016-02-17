@@ -4,9 +4,9 @@ function testLogin(){
                 function loginWithPopup(){
                     alert('login with popup');
                     var appId = '1670352679887073';
-                    var uri = 'https://fesebuv.github.io';
+                    var uri = window.location.href;
                     var url = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&redirect_uri="+uri+"&response_type=token");
-                    window.open(url,'fbtest');
+                    window.location.href = url;
                     
                 }
 
