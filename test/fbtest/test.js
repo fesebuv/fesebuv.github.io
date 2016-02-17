@@ -52,8 +52,13 @@ function testLogin(){
                 };
 
             })();
-            test.loginWithPopup();
+            // test.loginWithPopup();
             test.login();
+            
+            window.setTimeout(function(){
+                alert('nothing is happening!! ');
+            },1000);
+            
 }
 
 function testLogin_______(){
