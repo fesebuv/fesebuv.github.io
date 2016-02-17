@@ -22,10 +22,7 @@ function testLogin(){
                         }
                     });
                     
-                    window.setTimeout(function(){
-                // alert('nothing is happening!! ');
-                loginWithPopup();
-            },5000);
+                    
 
                 }
 
