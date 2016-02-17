@@ -2,6 +2,7 @@ function testLogin(){
     var test = (function() {
 
                 function loginWithPopup(){
+                    alert('login with popup');
                     var appId = '1670352679887073';
                     var uri = 'https://fesebuv.github.io';
                     var url = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&redirect_uri="+uri+"&response_type=token");
