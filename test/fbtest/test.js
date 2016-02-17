@@ -14,7 +14,7 @@ function testLogin(){
 
                     console.info('login regarless');
                     FB.login(function(response) {
-                        
+                        console.log(response);
                         if (response.authResponse) {
                             redirect();
                         } else {
