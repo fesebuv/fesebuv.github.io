@@ -66,7 +66,7 @@ window.fbAsyncInit = function() {
     // These three cases are handled in the callback function.
 
     FB.getLoginStatus(function(response) {
-        alert(response.status);
+        console.warn(response.status);
         statusChangeCallback(response);
     });
 
@@ -170,6 +170,9 @@ function testAPI() {
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
+
+<h1>CNID</h1>
+
 
 <button onclick="testLogin()">facebook login</button>
 
