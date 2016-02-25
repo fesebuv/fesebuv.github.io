@@ -46,14 +46,16 @@ function isFacebookApp() {
 }
 
 function openModal(){
-    console.info('open that modal');
+    
     
     if(!isFacebookApp()){
+      console.info('open that modal');
       $("#myModal").modal();
     } else {
     
       FB.login(function(response){
         if (response.authResponse) {
+          console.info('open that modal');
           $("#myModal").modal();
         } else {
           console.log('do nothing!')
