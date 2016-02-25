@@ -40,9 +40,27 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>
 
+function isFacebookApp() {
+    var ua = navigator.userAgent || navigator.vendor || window.opera;
+    return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+}
+
 function openModal(){
     console.info('open that modal');
-    $("#myModal").modal();
+    
+    if(!isFacebookApp()){
+      $("#myModal").modal();
+    } else {
+    
+      FB.login(function(response){
+        if (response.authResponse) {
+          $("#myModal").modal();
+        } else {
+          console.log('do nothing!')
+      }
+    });
+    }
+    
 }
 
 function openWindow(){
