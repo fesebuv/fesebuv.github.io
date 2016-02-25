@@ -36,7 +36,7 @@ function testLogin() {
     }
     
     function redirect(){
-      alert('redirect')!
+      alert('redirect');
     }
     return {
       checkLoginState: checkLoginState
