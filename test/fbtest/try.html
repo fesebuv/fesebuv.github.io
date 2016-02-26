@@ -80,7 +80,7 @@ button.close{
 
 <h1>CN TRAVELER</h1>
 
-<button onclick="testLogin()">leave a note!</button>
+<button onclick="s()">leave a note!</button>
 
 
 <div id="status"></div>
@@ -179,17 +179,7 @@ function s(){
     if(!isFacebookApp()){
         openModal();
     } else {
-        try{
-            FB.login(function(response){
-                if (response.authResponse) {
-                    openModal();
-               } else {
-                    alert('user has cancelled the login!');
-               }
-            });
-        } catch(err){
-            alert(err);
-        }
+        testLogin();
     }
 }
 
