@@ -66,7 +66,7 @@ function testLogin() {
     }
     
     function redirect(){
-      alert('redirect');
+      alert('you are CNID approved!');
       window.top.location.href = 'http://fesebuv.github.io/test/fbtest/';
     }
     return {
