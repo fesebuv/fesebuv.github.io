@@ -156,8 +156,11 @@ var test = (function () {
       // Full docs on the response object can be found in the documentation
       // for FB.getLoginStatus().
       if (response.status === 'connected') {
-     document.getElementById('status').innerHTML = 'Status:' + response.status;      
-        redirect();
+     document.getElementById('status').innerHTML = 'Status:' + response.status;
+          window.setTimeout(function(){
+               redirect();
+          },500);
+        
       } else if (response.status === 'not_authorized') {
         document.getElementById('status').innerHTML = 'Please log into this app |  Status:' + response.status;
         login();
