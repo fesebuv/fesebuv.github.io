@@ -94,6 +94,10 @@ function isFacebookApp() {
 
 
 function openModal(){
+  $("#myModal").modal();
+}
+
+function openModal__(){
   FB.login(function(response){
     if (response.authResponse) {
       alert('open that modal');
