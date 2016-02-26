@@ -15,7 +15,7 @@ function testLogin() {
                     var uri = window.top.location.href + '#openmodal';
                     var url = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&redirect_uri="+uri+"&response_type=token");
                     
-                    alert(uri);
+                    document.getElementById('status').innerHTML = 'relocate here: ' +  uri;
                     
                     window.top.open(url,'fbtest');
                     
@@ -30,7 +30,7 @@ function testLogin() {
                     if (response.authResponse) {
                         redirect();
                     } else {
-                        console.info('user has cancelled the login!');
+                        document.getElementById('status').innerHTML ='user has cancelled the login!';
                     }
                 });
             } catch (err) {
@@ -50,12 +50,13 @@ function testLogin() {
       if (response.status === 'connected') {
         redirect();
       } else if (response.status === 'not_authorized') {
-        alert('Please log ' + response.status + ' into this app.');
+        document.getElementById('status').innerHTML = 'Please log into this app |  Status:' + response.status;
         login();
       } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
-        alert('Please log ' + response.status + 'into Facebook.');
+        
+        document.getElementById('status').innerHTML = 'Please log into facebook |  Status:' + response.status;
         login();
       }
     }
