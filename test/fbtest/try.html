@@ -217,6 +217,7 @@ var test = (function () {
    FB.getLoginStatus(function(response) {
         console.warn(response.status);
         fbStatus = response.status;
+        document.getElementById('status').innerHTML = fbStatus;
    }, true);
     
 //    test.checkLoginState();
