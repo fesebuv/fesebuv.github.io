@@ -80,7 +80,7 @@ button.close{
 
 <h1>CN TRAVELER</h1>
 
-<button onclick="try()">leave a note!</button>
+<button onclick="s()">leave a note!</button>
 
 
 <!--CNID Modal-->
@@ -173,17 +173,17 @@ function openModal(){
 }
 
 
-function try(){
+function s(){
     if(!isFacebookApp()){
         openModal();
     } else {
         try{
             FB.login(function(response){
                 if (response.authResponse) {
-                        redirect();
-                    } else {
-                        alert('user has cancelled the login!');
-                    }
+                    alert('cnid approved! ');
+               } else {
+                    alert('user has cancelled the login!');
+               }
             });
         } catch(err){
             alert(err);
