@@ -177,7 +177,8 @@ var test = (function () {
       }, true);
     }
     function redirect() {
-      openModal();
+         window.location.reload(true);
+      //openModal();
     }
     return {
       checkLoginState: checkLoginState,
@@ -264,6 +265,26 @@ function testLogin() {
 
 </script>
 
+
+<script>
+     (function(){
+var varsStr = window.location.hash.toString().slice(1),
+            strArr = varsStr.split('&'),
+            vars = {},
+            i = 0,
+            len = strArr.length,
+            temp,
+            params;
+        for (i = 0; i < len; i++) {
+            temp = strArr[i].split('=');
+            vars[temp[0]] = temp[1];
+        }
+        if (vars.hasOwnProperty('openmodal')) {
+            $("#myModal").modal();
+        }
+})();
+
+</script>
 
 </body>
 </html>
