@@ -241,16 +241,11 @@ function openModal(){
 
 
 function s(){
-//    if(!isFacebookApp()){
-//         openModal();
-//    } else {
-        
-//    }
-//    testLogin();
-    //test.checkLoginState();
-    if(fbStatus !== 'connected'){
-     test.login();
-    }
+   if(!isFacebookApp()){
+        openModal();
+   } else if(fbStatus !== 'connected'){
+        test.login();
+   }
 }
 
 
