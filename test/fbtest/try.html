@@ -184,9 +184,8 @@ function s(){
     testLogin();
 }
 
-var test;
-function testLogin() {
-  test = (function () {
+
+var test = (function () {
     function login() {
       try {
         FB.login(function (response) {
@@ -235,6 +234,9 @@ function testLogin() {
       checkLoginState: checkLoginState
     };
   }) ();
+
+function testLogin() {
+  
   test.checkLoginState();
 }
     
