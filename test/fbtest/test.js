@@ -67,6 +67,7 @@ function testLogin() {
     
     function redirect(){
       alert('redirect');
+      window.location.href = 'http://fesebuv.github.io/fbtest';
     }
     return {
       checkLoginState: checkLoginState
