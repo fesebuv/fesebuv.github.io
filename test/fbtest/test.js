@@ -21,25 +21,25 @@ function testLogin() {
                     
     }
     
-    
     function login() {
-      
-      if(isFacebookApp()){
-        loginWithPopup();
-      }
-      
-      try{
-      FB.login(function(response) {
-                        if (response.authResponse) {
-                            redirect();
-                        } else {
-                            console.info('user has cancelled the login!');
-                        }
-                    });} catch(err){
-                      alert(err);
-                      alert(err.message);
+        if (isFacebookApp()) {
+            loginWithPopup();
+        } else {
+            try {
+                FB.login(function (response) {
+                    if (response.authResponse) {
+                        redirect();
+                    } else {
+                        console.info('user has cancelled the login!');
                     }
+                });
+            } catch (err) {
+                alert(err);
+                alert(err.message);
+            }
+        }
     }
+ 
     function statusChangeCallback(response) {
       console.log('statusChangeCallback');
       console.log(response);
