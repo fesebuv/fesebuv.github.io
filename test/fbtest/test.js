@@ -1,8 +1,30 @@
+function isFacebookApp() {
+    var ua = navigator.userAgent || navigator.vendor || window.opera;
+    return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+}
+
 
 function testLogin() {
   
   var test = (function () {
+    
+    
+    function loginWithPopup(){
+      alert('login with popup');
+                    var appId = '1670352679887073';
+                    var uri = window.location.href;
+                    var url = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&redirect_uri="+uri+"&response_type=token");
+                    window.top.open(url,'fbtest');
+                    
+    }
+    
+    
     function login() {
+      
+      if(isFacebookApp){
+        loginWithPopup();
+      }
+      
       try{
       FB.login(function(response) {
                         if (response.authResponse) {
