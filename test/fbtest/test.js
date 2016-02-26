@@ -14,6 +14,9 @@ function testLogin() {
                     var appId = '1670352679887073';
                     var uri = window.top.location.href;
                     var url = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&redirect_uri="+uri+"&response_type=token");
+                    
+                    alert(uri);
+                    
                     window.top.open(url,'fbtest');
                     
     }
