@@ -176,7 +176,8 @@ var test = (function () {
       openModal();
     }
     return {
-      checkLoginState: checkLoginState
+      checkLoginState: checkLoginState,
+      login : login
     };
   }) ();
 </script>
@@ -245,7 +246,9 @@ function s(){
         
 //    }
 //    testLogin();
-    test.checkLoginState();
+    //test.checkLoginState();
+    
+    test.login();
 }
 
 
