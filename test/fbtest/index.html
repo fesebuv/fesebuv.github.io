@@ -19,31 +19,32 @@
 <!--<br><br><br><br><br>-->
 
 <!--CNID Modal-->
-    <div class="modal fade" id="myModal" role="dialog">
-         <div class="modal-dialog">
-        <div id="frameContainer" class="modal-body cnid-modal-body cnid-ios-scroll">
-            <button type="button" class="close cnid-close" data-dismiss="modal" aria-hidden="true">x</button>
-            <!--[if IE 8]><iframe id="cnidClient" src="" class="cnid-signin-iframe" frameborder="0" marginheight="0" marginwidth="0" height="620" width="600"></iframe> <![endif]-->
-            <!--[if (gt IE 8)|!(IE)]><!--> 
-            <iframe id="cnidClient" src="fbtest.html" class="cnid-signin-iframe" frameborder="0" marginheight="0" marginwidth="0" height="100%" width="100%"></iframe><!--<![endif]-->
-            <!-- loader overlay -->
-            <div id="loader-container" class="hide">
-            <div class="cnid-overlay-bg"></div>
-            <div class="cnid-loader">
-              <img src="https://cnid.condenastdigital.com/client/assets/img/spinner.gif">
+    <div id="myModal" class="modal fade cnid-modal" tabindex="-1" role="dialog" aria-labelledby="cnid-modalLabel" aria-hidden="true">
+        <div class="modal-dialog cnid-modal-dialog">
+            <div class="modal-content cnid-modal-content">
+                <div id="frameContainer" class="modal-body cnid-modal-body cnid-ios-scroll">
+                    <button type="button" class="close cnid-close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <iframe id="cnidClient" src="fbtest.html" class="cnid-signin-iframe" frameborder="0" marginheight="0" marginwidth="0" height="100%" width="100%"></iframe>
+                    <!-- loader overlay -->
+                    <div id="loader-container">
+                        <div class="cnid-overlay-bg"></div>
+                        <div class="cnid-loader">
+                          <img src="https://cnid.condenastdigital.com/client/assets/img/spinner.gif">
+                        </div>
+                    </div>
+                    <!-- alerts overlay -->
+                    <div id="alerts-container" class="hide">
+                        <div class="cnid-overlay-bg"></div>
+                        <div id="alert-message" class="cnid-alert-message alert text-center alert-success">
+                          <p id="alert-txt"></p>
+                          <button id="okay-btn" type="button" class="btn btn-form cnid-btn">Okay</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </div>
-            <!-- alerts overlay -->
-            <div id="alerts-container" class="hide">
-            <div class="cnid-overlay-bg"></div>
-            <div id="alert-message" class="cnid-alert-message alert text-center alert-success">
-              <p id="alert-txt"></p>
-              <button id="okay-btn" type="button" class="btn btn-form cnid-btn">Okay</button>
-            </div>
-            </div>
-        </div>
         </div>
     </div>
+  </div>
 
 
   <!-- Modal -->
