@@ -130,6 +130,7 @@ button.close{
 
 
 <script>
+var fbStatus = '';
 var test = (function () {
     function login() {
       try {
@@ -212,7 +213,7 @@ var test = (function () {
 
    FB.getLoginStatus(function(response) {
         console.warn(response.status);
-        
+        fbStatus = response.status;
    }, true);
     
 //    test.checkLoginState();
@@ -247,8 +248,9 @@ function s(){
 //    }
 //    testLogin();
     //test.checkLoginState();
-    
-    test.login();
+    if(fbStatus !== 'connected'){
+     test.login();
+    }
 }
 
 
