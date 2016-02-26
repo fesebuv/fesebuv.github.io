@@ -46,6 +46,16 @@ function isFacebookApp() {
 }
 
 function openModal(){
+  FB.login(function(response){
+        if (response.authResponse) {
+          alert('open that modal');
+          $("#myModal").modal();
+        } else {
+          console.log('do nothing!')
+      }
+}
+
+function openModal_(){
     alert(isFacebookApp());
     
     if(!isFacebookApp()){
@@ -54,9 +64,9 @@ function openModal(){
     } else {
     
       var appId = '1670352679887073';
-                    var uri = window.location.href;
-                    var url = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&response_type=token");
-      window.location.href = url;
+      //               var uri = window.location.href;
+      //               var url = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&response_type=token");
+      // window.location.href = url;
     
       FB.login(function(response){
         if (response.authResponse) {
