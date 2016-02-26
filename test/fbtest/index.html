@@ -45,14 +45,16 @@ function isFacebookApp() {
     return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
 }
 
+
 function openModal(){
   FB.login(function(response){
-        if (response.authResponse) {
-          alert('open that modal');
-          $("#myModal").modal();
-        } else {
-         alert('do nothing!')
-      }
+    if (response.authResponse) {
+      alert('open that modal');
+      $("#myModal").modal();
+    } else {
+      alert('do nothing!');
+    }
+  }
 }
 
 function openModal_(){
