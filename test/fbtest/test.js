@@ -3,13 +3,17 @@ function testLogin() {
   
   var test = (function () {
     function login() {
+      try{
       FB.login(function(response) {
                         if (response.authResponse) {
                             redirect();
                         } else {
                             console.info('user has cancelled the login!');
                         }
-                    });
+                    });} catch(err){
+                      alert(err);
+                      alert(err.message);
+                    }
     }
     function statusChangeCallback(response) {
       console.log('statusChangeCallback');
