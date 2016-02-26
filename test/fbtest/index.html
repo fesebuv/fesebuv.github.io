@@ -46,7 +46,7 @@ function isFacebookApp() {
 }
 
 function openModal(){
-    
+    alert(isFacebookApp());
     
     if(!isFacebookApp()){
       console.info('open that modal');
@@ -55,7 +55,7 @@ function openModal(){
     
       FB.login(function(response){
         if (response.authResponse) {
-          console.info('open that modal');
+          alert('open that modal');
           $("#myModal").modal();
         } else {
           console.log('do nothing!')
