@@ -167,7 +167,7 @@ function testAPI() {
 <script>
  window.setInterval(function(){
   FB.getLoginStatus(function(response) {
-   console.info(response.status);
+   statusChangeCallback(response);
   });
  },100);
 </script>
