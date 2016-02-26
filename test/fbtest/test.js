@@ -54,7 +54,7 @@ function testLogin_1(){
                     alert('login with popup');
                     var appId = '1670352679887073';
                     var uri = window.location.href;
-                    var url = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&redirect_uri="+uri+"&response_type=token");
+                    var url = encodeURI("https://www.facebook.com/dialog/oauth?client_id="+appId+"&response_type=token");
                     window.open(url,'fbtest');
                     
                 }
