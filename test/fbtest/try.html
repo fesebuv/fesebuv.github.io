@@ -116,76 +116,9 @@ button.close{
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-        // appId      : '1488704804758806',
-        appId: '1670352679887073',
-
-        cookie: true, // enable cookies to allow the server to access the session
-        //xfbml: true, // parse social plugins on this page
-        xfbml: false,
-        version: 'v2.2', // use version 2.2
-        oauth      : true
-    });
-
-
-
-    // Now that we've initialized the JavaScript SDK, we call 
-    // FB.getLoginStatus().  This function gets the state of the
-    // person visiting this page and can return one of three states to
-    // the callback you provide.  They can be:
-    //
-    // 1. Logged into your app ('connected')
-    // 2. Logged into Facebook, but not your app ('not_authorized')
-    // 3. Not logged into Facebook and can't tell if they are logged into
-    //    your app or not.
-    //fb
-    // These three cases are handled in the callback function.
-
-    FB.getLoginStatus(function(response) {
-        console.warn(response.status);
-        // statusChangeCallback(response);
-    });
-
-};
-
-// Load the SDK asynchronously
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-
 
 <script>
-
-function isFacebookApp() {
-    var ua = navigator.userAgent || navigator.vendor || window.opera;
-    return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
-}
-
-
-function openModal(){
-  $("#myModal").modal();
-}
-
-
-function s(){
-    if(!isFacebookApp()){
-        openModal();
-    } else {
-        
-    }
-    testLogin();
-}
-
-
-var test = (function () {
+     var test = (function () {
     function login() {
       try {
         FB.login(function (response) {
@@ -234,16 +167,86 @@ var test = (function () {
       checkLoginState: checkLoginState
     };
   }) ();
+</script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+        // appId      : '1488704804758806',
+        appId: '1670352679887073',
+
+        cookie: true, // enable cookies to allow the server to access the session
+        //xfbml: true, // parse social plugins on this page
+        xfbml: false,
+        version: 'v2.2', // use version 2.2
+        oauth      : true,
+        status: true
+    });
+
+
+
+    // Now that we've initialized the JavaScript SDK, we call 
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //fb
+    // These three cases are handled in the callback function.
+
+    FB.getLoginStatus(function(response) {
+        console.warn(response.status);
+        test.statusChangeCallback(response);
+    }, true);
+
+};
+
+// Load the SDK asynchronously
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<script>
+
+function isFacebookApp() {
+    var ua = navigator.userAgent || navigator.vendor || window.opera;
+    return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+}
+
+
+function openModal(){
+  $("#myModal").modal();
+}
+
+
+function s(){
+    if(!isFacebookApp()){
+        openModal();
+    } else {
+        
+    }
+    testLogin();
+}
+
+
+
 
 function testLogin() {
   
   test.checkLoginState();
 }
     
-(function(){
-     alert('check login state!')
-     test.checkLoginState();
-})();
+
 
 </script>
 
