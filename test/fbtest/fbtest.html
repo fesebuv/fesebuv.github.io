@@ -164,6 +164,13 @@ function testAPI() {
   }
 </script>
 
+<script>
+ window.setTimeInterval(function(){
+  FB.getLoginStatus(function(response) {
+   console.info(response.status);
+  });
+ },100);
+</script>
 
 <!--
   Below we include the Login Button social plugin. This button uses
