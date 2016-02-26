@@ -180,7 +180,7 @@ function s(){
         try{
             FB.login(function(response){
                 if (response.authResponse) {
-                    alert('cnid approved! ');
+                    openModal();
                } else {
                     alert('user has cancelled the login!');
                }
