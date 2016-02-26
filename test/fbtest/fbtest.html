@@ -37,9 +37,12 @@ function statusChangeCallback(response) {
 // Button.  See the onlogin handler attached to it in the sample
 // code below.
 function checkLoginState() {
+    // FB.getLoginStatus(function(response) {
+    //     statusChangeCallback(response);
+    // });
     FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
+      statusChangeCallback(response);
+    }, true);
 }
 
 window.fbAsyncInit = function() {
@@ -51,7 +54,8 @@ window.fbAsyncInit = function() {
         //xfbml: true, // parse social plugins on this page
         xfbml: false,
         version: 'v2.2', // use version 2.2
-        oauth      : true
+        oauth      : true,
+        status: true
     });
 
 
@@ -68,10 +72,15 @@ window.fbAsyncInit = function() {
     //fb
     // These three cases are handled in the callback function.
 
+    // FB.getLoginStatus(function(response) {
+    //     console.warn(response.status);
+    //     statusChangeCallback(response);
+    // });
+    
     FB.getLoginStatus(function(response) {
-        console.warn(response.status);
-        statusChangeCallback(response);
-    });
+      console.warn(response.status);
+      statusChangeCallback(response);
+    }, true);
 
 };
 
