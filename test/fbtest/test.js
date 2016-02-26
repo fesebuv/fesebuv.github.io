@@ -25,7 +25,7 @@ function testLogin() {
     function login() {
       
       if(isFacebookApp()){
-        loginWithPopup();
+        // loginWithPopup();
       }
       
       try{
