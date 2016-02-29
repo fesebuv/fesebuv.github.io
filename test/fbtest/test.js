@@ -70,7 +70,8 @@ function testLogin() {
     //   alert('you are CNID approved!');
     //   window.top.location.href = 'http://fesebuv.github.io/test/fbtest/';
         console.log('-- send message --');
-	    window.top.postMessage("{hide:true}",window.location.domain);
+        sendMessage("{hide:true}");
+	    
   
     }
     return {
