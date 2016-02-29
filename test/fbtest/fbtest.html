@@ -237,7 +237,8 @@ function testAPI() {
   window.setInterval(function() {
 	  // Send the message "Hello" to the parent window
 	  // ...if the domain is still "davidwalsh.name"
-	  window.parent.postMessage("Hello","https://davidwalsh.name");
+	  console.log('send message');
+	  window.parent.postMessage("Hello",window.location.domain);
   },1000);
 </script>
 
