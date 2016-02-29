@@ -235,9 +235,8 @@ function testAPI() {
 
 <script>
   window.setInterval(function() {
-	  // Send the message "Hello" to the parent window
-	  // ...if the domain is still "davidwalsh.name"
 	  console.log('send message');
+	  console.info(window.parent);
 	  window.parent.postMessage("Hello",'http://fesebuv.github.io/test/fbtest/try.html');
   },1000);
 </script>
