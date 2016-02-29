@@ -246,13 +246,16 @@ function openModal(){
 }
 
 
-function s(){
-//    if(!isFacebookApp()){
-if(0===1 || fbStatus === 'connected'){
-        openModal();
-   } else if(fbStatus !== 'connected'){
-        test.login();
-   }
+function s() {
+  if (!isFacebookApp()) {
+    openModal();
+    return false;
+  }
+  if (fbStatus === 'connected') {
+    openModal();
+  } else {
+    test.login();
+  }
 }
 
 
