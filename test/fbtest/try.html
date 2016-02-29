@@ -292,7 +292,7 @@ var varsStr = window.location.hash.toString().slice(1),
 window.addEventListener("message", receiveMessage, false);
 
 function receiveMessage(event){
-     var testOrg = "http://fesebuv.github.io/test/fbtest/fbtest.html";
+     var testOrg = "http://fesebuv.github.io";
   var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
      console.info('origin: %s', origin);
   if (origin !== testOrg)
