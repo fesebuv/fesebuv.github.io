@@ -288,11 +288,17 @@ var varsStr = window.location.hash.toString().slice(1),
 </script>
 
 <script>
-     function displayMessage(evt){
-          console.info('display message');
-          console.info(evt.message);
-     }
-     window.addEventListener("message", displayMessage, false);
+
+window.addEventListener("message", receiveMessage, false);
+
+function receiveMessage(event){
+     var testOrg = "http://fesebuv.github.io/test/fbtest/fbtest.html";
+  var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+  if (origin !== testOrg)
+    return;
+
+     console.warn(event.message);
+}
 </script>
 
 
