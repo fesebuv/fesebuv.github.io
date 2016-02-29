@@ -299,6 +299,13 @@ function receiveMessage(event){
     return;
 
      console.warn(event);
+     
+     var data = event.data || '';
+     var json = JSON.parse(data) || {};
+     
+     if(json.hide){
+         $('#myModal').modal('hide');
+     }
 }
 </script>
 
