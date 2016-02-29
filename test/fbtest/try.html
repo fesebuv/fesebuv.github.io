@@ -298,10 +298,15 @@ function receiveMessage(event){
   if (origin !== testOrg)
     return;
 
-     console.warn(event);
+     console.warn(event.data);
      
      var data = event.data || '';
      var json = JSON.parse(data) || {};
+     
+     console.info(data);
+     console.info(json);
+     
+     console.info(json.hide);
      
      if(json.hide){
          $('#myModal').modal('hide');
