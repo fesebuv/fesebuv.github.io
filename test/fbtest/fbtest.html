@@ -242,7 +242,9 @@ function testAPI() {
   
   
   function sendMessage(mesage){
-  	window.parent.postMessage(message,'http://fesebuv.github.io/test/fbtest/try.html');
+  	console.log('message');
+  	console.info(message);
+  	window.top.postMessage(message,'http://fesebuv.github.io/test/fbtest/try.html');
   }
 </script>
 
