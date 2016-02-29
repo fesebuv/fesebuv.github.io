@@ -294,6 +294,7 @@ window.addEventListener("message", receiveMessage, false);
 function receiveMessage(event){
      var testOrg = "http://fesebuv.github.io/test/fbtest/fbtest.html";
   var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+     console.info('origin: %s', origin);
   if (origin !== testOrg)
     return;
 
