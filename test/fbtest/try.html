@@ -317,11 +317,15 @@ function receiveMessage(event){
 }
 </script>
 
-
 <script>
-     FB.Event.subscribe('auth.statusChange', function(){
-          console.info('status change!');
-     });
+FB.Event.subscribe('auth.authResponseChange', auth_response_change_callback);
+FB.Event.subscribe('auth.statusChange', auth_status_change_callback);
+
+// In your JavaScript
+var auth_response_change_callback = function(response) {
+  console.log("auth_response_change_callback");
+  console.log(response);
+}
 </script>
 
 </body>
