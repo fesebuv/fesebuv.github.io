@@ -318,5 +318,11 @@ function receiveMessage(event){
 </script>
 
 
+<script>
+     FB.Event.subscribe('auth.statusChange', function(){
+          console.info('status change!');
+     });
+</script>
+
 </body>
 </html>
