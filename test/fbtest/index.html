@@ -258,6 +258,12 @@ var varsStr = window.location.hash.toString().slice(1),
 
 </script>
 
+<script>
+     FB.Event.subscribe('auth.statusChange', function(){
+          console.info('status change!');
+     });
+</script>
+
 
 </body>
 </html>
