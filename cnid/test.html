@@ -21,7 +21,7 @@
 
   <div class="container">
     
-      <a id="test" href="#myModal" role="button" class="btn btn-default brand_button cnid-auth login-msg" data-toggle="modal">Sign In/Register</a>
+      <a id="test" onclick="test()" href="#myModal" role="button" class="btn btn-default brand_button cnid-auth login-msg" data-toggle="modal">Sign In/Register</a>
           
 
 
@@ -60,7 +60,13 @@
   <script src="../dist/js/cnid-client.js"></script>
   <script src="/js/brand-client.js"></script>
   
+  
   <script src="http://stag.epicurious.com/static/js/dev/homepage__1.63.1.js"></script>
+  <script>
+    function test(){
+      console.info('this is a test!');
+    }
+  </script>
   
 </body>
 </html>
