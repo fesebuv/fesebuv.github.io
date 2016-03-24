@@ -1,0 +1,223 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.1.0/es5-shim.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.js"></script>
+<![endif]-->
+<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css"> -->
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<style>
+
+.modal{
+  padding: 0 !important;
+}
+
+.modal-dialog {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-dialog {
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+.modal-content {
+  height: 100%;
+  border-radius: 0;
+}
+
+.modal-content {
+  height: auto;
+  min-height: 100%;
+}
+
+
+.signInIframe {
+  min-height: 645px;
+}
+
+
+
+#frameContainer{
+  margin:0;
+  padding:0;
+  position: relative;
+}
+
+button.close{
+  position: absolute;
+  right: 30px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  opacity: 0.5;
+  font-weight: 400;
+  font-size: 50px;
+}
+
+textarea{
+  width: 80%;
+  height: 130px;
+}
+
+</style>
+
+
+
+
+</head>
+<body>
+
+<div class="container">
+
+  <h2>CNID - test page</h2>
+
+    <ul class="user">
+      <li> username: <span id="username">username</span></li>
+      <li> current brand: <span id="current_brand">current_brand</span></li>
+    </ul>
+
+    <div>
+      Select Brand:
+      <select class="select_brand"></select><br/>
+      Select Environment:
+      <select id="select_environment">
+        <option>dev</option>
+        <option>stag</option>
+        <option>prod</option>
+      </select>
+    </div>
+
+
+
+    
+    <div>
+      <h3>Brand Config</h3>
+      <textarea id="config">{something here}</textarea>
+    </div>
+
+    <div>
+      <h3>CNID Params</h3>
+      <textarea id="params">{something here}</textarea>
+    </div>
+
+    <!-- <button id="test-cnid">TEST</button> -->
+
+
+    <a id="test-cnid" href="#myModal" role="button" class="btn brand_button" data-toggle="modal">Sign In/Register</a>
+
+
+    <a id="test-tvl" href="#myModal" role="button" class="btn brand_button" data-toggle="modal">traveler</a>
+
+
+
+
+
+    <div>
+    <input style="width:80%" type="text" id="test_url" value="http://localhost:9001/?random=0.6308675131294876&domain=http://localhost:5000&regPath=auth&regSrc=CNEE_GLM&brandUrl=http://localhost:5000/bs3-example.html&referralDomain=localhost&updateToken=&resetToken=#/com.condenet.glamour/login">
+    <a id="test_url_btn" href="#myModal" role="button" class="btn brand_button" data-toggle="modal">test url</a>
+    </div>
+
+</div>
+
+
+<div id="cnid-modal" class="modal fade cnid-modal" tabindex="-1" role="dialog" aria-labelledby="cnid-modalLabel" aria-hidden="true">
+    <div class="modal-dialog cnid-modal-dialog">
+        <div class="modal-content cnid-modal-content">
+            <div id="frameContainer" class="modal-body cnid-modal-body cnid-ios-scroll">
+                <button type="button" class="close cnid-close" data-dismiss="modal" aria-hidden="true">x</button>
+                <iframe id="cnidClient" src="http://dev-cnid.condenastdigital.com/client/index.html?random=0.31158368894830346&domain=http://dev-cnee.condenastdigital.com&regPath=commentingtvl&regSrc=CNID_TVL_REVIEW&brandUrl=http://dev-cnee.condenastdigital.com/admin/postmessage.html&referralDomain=dev-cnee.condenastdigital.com&updateToken=&resetToken=&token=#/com.condenet.traveler/sitedetails" class="cnid-signin-iframe" frameborder="0" marginheight="0" marginwidth="0" height="100%" width="100%"></iframe>
+                <!-- loader overlay -->
+                <div id="loader-container">
+                    <div class="cnid-overlay-bg"></div>
+                    <div class="cnid-loader">
+                      <img src="https://cnid.condenastdigital.com/client/assets/img/spinner.gif">
+                    </div>
+                </div>
+                <!-- alerts overlay -->
+                <div id="alerts-container" class="hide">
+                    <div class="cnid-overlay-bg"></div>
+                    <div id="alert-message" class="cnid-alert-message alert text-center alert-success">
+                      <p id="alert-txt"></p>
+                      <button id="okay-btn" type="button" class="btn btn-form cnid-btn">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+
+<script src="../dist/js/cnid-client.js"></script>
+<script src="../js/brand-client.js"></script>
+
+<script>
+  $('#test_url_btn').click(function() {
+    console.info('test button');
+
+    var url = $('#test_url').val();
+
+    var iframe = $('#cnidClient')[0];
+
+    console.info(iframe);
+
+    iframe.src = 'http://localhost:9001/?random=0.6308675131294876&domain=http://localhost:5000&regPath=auth&regSrc=CNEE_GLM&brandUrl=http://localhost:5000/facebooktest.html&referralDomain=localhost&updateToken=&resetToken=#/com.condenet.glamour/login';
+
+
+    // $('#myModal').modal();
+    $('#cnid-modal').modal();
+});
+
+(function() {
+
+    $(document).ready(function() {
+        console.info('test');
+
+        var body = $('body');
+
+        console.info(body.height());
+        console.info($(document).height());
+
+
+        var modalContent = $('.modal-content');
+
+        // $('.signInIframe').css('min-height',body.height());
+        $('#cnidClient').css('height', body.height());
+
+        console.info($('.signInIframe'));
+
+
+
+
+    });
+
+})();
+
+</script>
+
+</body>
+</html>
