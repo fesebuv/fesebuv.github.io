@@ -12,7 +12,7 @@
 <div id="tz">
   <select id="zones">
     <option value="America/Los_Angeles">LA</option>
-    <option value="America/New_York">LA</option>
+    <option value="America/New_York">NYC</option>
   </select>
 </div>
 
@@ -44,11 +44,13 @@
       var location = this.value || 'America/Los_Angeles';
       var src = 'https://calendar.google.com/calendar/embed?src=ilr6oeh0bnaajps2odvh8k65so%40group.calendar.google.com&ctz=' + location;
       iframe = document.getElementById('calendar');
+      iframe.src = src;
     }
     checkIframeLoaded();
   }
   loadIframe();
 }) ();
+
 </script>
 
 </body>
