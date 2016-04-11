@@ -17,6 +17,38 @@
 </div>
 
 <script>
+(function () {
+  var calUrl = 'https://calendar.google.com/calendar/embed?src=ilr6oeh0bnaajps2odvh8k65so%40group.calendar.google.com&ctz=';
+  var iframe = document.getElementById('calendar');
+  function checkIframeLoaded() {
+    var iframeDoc = typeof iframe !== null && iframe.contentDocument || iframe.contentWindow.document;
+    console.info(iframeDoc.readyState);
+    if (iframeDoc.readyState === 'complete') {
+      var elem = document.getElementById('tz');
+      console.info('elem');
+      elem.style.display = 'block';
+      iframe.contentWindow.onload = function () {
+      };
+      //afterLoading();
+      return;
+    }
+  }
+  function loadIframe() {
+    var location = 'America/Los_Angeles';
+    var src = calUrl + location;
+    var zones = document.getElementById('zones');
+    iframe.src = src;
+    zones.onchange = function (elem) {
+      console.info(this.value);
+      var location = this.value || 'America/Los_Angeles';
+      var src = calUrl + location;
+      iframe = document.getElementById('calendar');
+      iframe.src = src;
+    }
+    checkIframeLoaded();
+  }
+  loadIframe();
+}) ();
 
 </script>
 
