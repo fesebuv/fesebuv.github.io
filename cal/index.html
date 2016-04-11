@@ -6,7 +6,32 @@
 </head>
 
 <body>
-<iframe src="https://calendar.google.com/calendar/embed?src=ilr6oeh0bnaajps2odvh8k65so%40group.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<div id="tz">
+  control
+</div>
+<iframe id="calendar" src="https://calendar.google.com/calendar/embed?src=ilr6oeh0bnaajps2odvh8k65so%40group.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+<script>
+function checkIframeLoaded() {
+  var iframe = document.getElementById('calendar');
+  var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+  if (iframeDoc.readyState == 'complete') {
+    iframe.contentWindow.onload = function () {
+      var elem = document.getElementById('tz');
+      elem.style.display = 'block';
+    };
+    //afterLoading();
+    return;
+  }
+ 
+
+  window.setTimeout(function () {
+    checkIframeLoaded();
+  }, 100);
+}
+checkIframeLoaded();
+</script>
 </body>
 
 </html>
