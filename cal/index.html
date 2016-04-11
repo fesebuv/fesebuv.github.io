@@ -21,6 +21,7 @@
   function checkIframeLoaded() {
     var iframe = document.getElementById('calendar');
     var iframeDoc = typeof iframe !== null && iframe.contentDocument || iframe.contentWindow.document;
+    console.info(frameDoc.readyState);
     if (iframeDoc.readyState == 'complete') {
       iframe.contentWindow.onload = function () {
         var elem = document.getElementById('tz');
@@ -30,9 +31,7 @@
       //afterLoading();
       return;
     }
-    window.setTimeout(function () {
-      checkIframeLoaded();
-    }, 100);
+    
   }
   function loadIframe() {
     var location = 'America/Los_Angeles';
