@@ -24,6 +24,7 @@
     if (iframeDoc.readyState == 'complete') {
       iframe.contentWindow.onload = function () {
         var elem = document.getElementById('tz');
+        console.info('elem');
         elem.style.display = 'block';
       };
       //afterLoading();
