@@ -6,32 +6,44 @@
 </head>
 
 <body>
-<div id="tz">
-  control
-</div>
+
 <iframe id="calendar" src="https://calendar.google.com/calendar/embed?src=ilr6oeh0bnaajps2odvh8k65so%40group.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
+<div id="tz">
+  <select >
+    <option value="America/Los_Angeles">LA</option>
+    <option value="America/New_York">LA</option>
+  </select>
+</div>
 
 <script>
-function checkIframeLoaded() {
-  var iframe = document.getElementById('calendar');
-  var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-  if (iframeDoc.readyState == 'complete') {
-    iframe.contentWindow.onload = function () {
-      var elem = document.getElementById('tz');
-      elem.style.display = 'block';
-    };
-    //afterLoading();
-    return;
+(function () {
+  function checkIframeLoaded() {
+    var iframe = document.getElementById('calendar');
+    var iframeDoc = typeof iframe !== null && iframe.contentDocument || iframe.contentWindow.document;
+    if (iframeDoc.readyState == 'complete') {
+      iframe.contentWindow.onload = function () {
+        var elem = document.getElementById('tz');
+        elem.style.display = 'block';
+      };
+      //afterLoading();
+      return;
+    }
+    window.setTimeout(function () {
+      checkIframeLoaded();
+    }, 100);
   }
- 
-
-  window.setTimeout(function () {
-    checkIframeLoaded();
-  }, 100);
-}
-checkIframeLoaded();
+  function loadIframe() {
+    var location = 'America/Los_Angeles';
+    var src = 'https://calendar.google.com/calendar/embed?src=ilr6oeh0bnaajps2odvh8k65so%40group.calendar.google.com&ctz=' + location;
+    var iframe = document.getElementById('calendar');
+    iframe.src = src;
+  }
+  checkIframeLoaded();
+  loadIframe();
+}) ();
 </script>
+
 </body>
 
 </html>
