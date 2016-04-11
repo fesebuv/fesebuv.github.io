@@ -36,17 +36,19 @@
   function loadIframe() {
     var location = 'America/Los_Angeles';
     var src = 'https://calendar.google.com/calendar/embed?src=ilr6oeh0bnaajps2odvh8k65so%40group.calendar.google.com&ctz=' + location;
-    var iframe = document.getElementById('calendar');
+    iframe = document.getElementById('calendar');
     iframe.src = src;
     var zones = document.getElementById('zones');
     zones.onchange = function (elem) {
       console.info(this.value);
+      var location = this.value || 'America/Los_Angeles';
+      var src = 'https://calendar.google.com/calendar/embed?src=ilr6oeh0bnaajps2odvh8k65so%40group.calendar.google.com&ctz=' + location;
+      iframe = document.getElementById('calendar');
     }
     checkIframeLoaded();
   }
   loadIframe();
 }) ();
-
 </script>
 
 </body>
