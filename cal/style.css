@@ -1,7 +1,7 @@
 
 @media (min-width : 320px) and (max-width : 480px) {
   iframe#calendar{
-    width: 90%;
-    background: red;
+    width: 100%;
   }
 }
+
