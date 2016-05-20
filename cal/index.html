@@ -40,17 +40,17 @@
     }
   }
   function loadIframe() {
-    var location = 'America/Los_Angeles';
+    var location = 'America/New_York';
     var src = calUrl + location;
     var zones = document.getElementById('zones');
     iframe.src = src;
-    zones.onchange = function (elem) {
+    /*zones.onchange = function (elem) {
       console.info(this.value);
       var location = this.value || 'America/New_York';
       var src = calUrl + location;
       iframe = document.getElementById('calendar');
       iframe.src = src;
-    }
+     } */
     checkIframeLoaded();
   }
   loadIframe();
