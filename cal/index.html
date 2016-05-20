@@ -13,12 +13,12 @@
 
   <iframe id="calendar" src="" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-  <div id="tz" style="display:none;">
+  <!-- <div id="tz" style="display:none;">
     <select id="zones">
       <option value="America/New_York">NYC</option>
       <option value="America/Los_Angeles">LA</option>
     </select>
-  </div>
+  </div> -->
 
 </div>
 
@@ -46,7 +46,7 @@
     iframe.src = src;
     zones.onchange = function (elem) {
       console.info(this.value);
-      var location = this.value || 'America/Los_Angeles';
+      var location = this.value || 'America/New_York';
       var src = calUrl + location;
       iframe = document.getElementById('calendar');
       iframe.src = src;
