@@ -170,7 +170,7 @@ var html5Video = function () {
   function init(videoId) {
     console.info(videoId);
     video = document.getElementById(videoId);
-    container = document.getElementById('container-' + id);
+    container = document.getElementById('container-' + videoId);
     console.info(video);
     console.log(container);
     video.addEventListener('ended', _endVideo, false);
