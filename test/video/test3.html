@@ -121,6 +121,31 @@
     }
     
     
+    function _fullScreen(vid){
+    
+      if (vid.requestFullscreen) {
+        vid.requestFullscreen();
+      } else if (vid.msRequestFullscreen) {
+        vid.msRequestFullscreen();
+      } else if (vid.mozRequestFullScreen) {
+        vid.mozRequestFullScreen();
+      } else if (vid.webkitRequestFullscreen) {
+        vid.webkitRequestFullscreen();
+      }
+    }
+    
+    function test(vid){
+    
+    console.warn(vid.id);
+    var id = vid.id;
+    var container = document.getElementById("container-" + id); 
+    
+    
+    $(container).show();
+    vid.play();
+    _fullScreen(vid);
+  }
+    
     function init(){
       console.info('init');
       
@@ -135,6 +160,7 @@
         
         console.info(video);
         
+        _test(video);
         video.addEventListener('ended', _endVideo, false);
         video.addEventListener('pause', _pauseVideo, false);
         
