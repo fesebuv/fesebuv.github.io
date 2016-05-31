@@ -109,6 +109,18 @@
 
   var html5Video = function(){
     
+    function _endVideo(){
+      console.log('video end');
+      console.info(this);
+      
+    }
+  
+    function _pauseVideo() { 
+      console.info(this);
+      console.log('video paused');
+    }
+    
+    
     function init(){
       console.info('init');
       
@@ -123,9 +135,8 @@
         
         console.info(video);
         
-        video.bind('pause', function(){
-          console.warn('video paused');
-        });
+        video.addEventListener('ended', _endVideo, false);
+        video.addEventListener('pause', _pauseVideo, false);
         
       });
       
