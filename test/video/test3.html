@@ -40,7 +40,7 @@
 
 <script src="https://subscribe.vogue.com/circulation/gq/scripts/jquery-1.8.2.min.js"></script>
 <script>
-
+  /*
   var lnk = document.getElementById('link');
   var container =document.getElementById("containervideo"); 
   var elem = document.getElementById("myvideo");
@@ -105,79 +105,98 @@
   elem.addEventListener('ended', endVideo, false);
   elem.addEventListener('pause', pauseVideo, false);
   document.addEventListener('keypress', test1, false);
+  */
 
-
-  var html5Video = function(){
-    
-    function _endVideo(){
-      console.log('video end');
-      console.info(this);
-      
-    }
-  
-    function _pauseVideo() { 
-      console.info(this);
-      console.log('video paused');
-    }
-    
-    
-    function _fullScreen(vid){
-    
-      if (vid.requestFullscreen) {
-        vid.requestFullscreen();
-      } else if (vid.msRequestFullscreen) {
-        vid.msRequestFullscreen();
-      } else if (vid.mozRequestFullScreen) {
-        vid.mozRequestFullScreen();
-      } else if (vid.webkitRequestFullscreen) {
-        vid.webkitRequestFullscreen();
-      }
-    }
-    
-    function _test(vid){
-    
-    console.warn(vid.id);
-    var id = vid.id;
-    var container = document.getElementById("container-" + id); 
-    
-    
-    $(container).show();
-    vid.play();
-    _fullScreen(vid);
-  }
-    
-    function init(){
-      console.info('init');
-      
-      $('.lnk-video').click(function(evt){
-        evt.preventDefault();
-        console.info('click href');
-        
-        var videoId = this.getAttribute('data-video');
-        
-        console.info(videoId);
-        
-        var video = document.getElementById(videoId);
-        
-        console.info(video);
-        
-        _test(video);
-        video.addEventListener('ended', _endVideo, false);
-        video.addEventListener('pause', _pauseVideo, false);
-        
-      });
-      
-    }
-    
-    return {
-      init: init
-    };
-    
-  }();
-
-html5Video.init();
   
 </script>
+
+<script>
+var html5Video = function () {
+  
+  var video,
+    container;
+  
+  function _exitFullScreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+  
+  function _fullScreen() {
+    var vid = video;
+    if (vid.requestFullscreen) {
+      vid.requestFullscreen();
+    } else if (vid.msRequestFullscreen) {
+      vid.msRequestFullscreen();
+    } else if (vid.mozRequestFullScreen) {
+      vid.mozRequestFullScreen();
+    } else if (vid.webkitRequestFullscreen) {
+      vid.webkitRequestFullscreen();
+    }
+  }
+  
+  function _endVideo() {
+    var vid = video;
+    container.hide();
+    video.load();
+    _exitFullScreen();
+  }
+  function _pauseVideo() {
+    var vid = video;
+    if (!vid.webkitDisplayingFullscreen)
+    _endVideo();
+  }
+  
+  
+  function _fullScreen() {
+    var vid = video;
+    if (vid.requestFullscreen) {
+      vid.requestFullscreen();
+    } else if (vid.msRequestFullscreen) {
+      vid.msRequestFullscreen();
+    } else if (vid.mozRequestFullScreen) {
+      vid.mozRequestFullScreen();
+    } else if (vid.webkitRequestFullscreen) {
+      vid.webkitRequestFullscreen();
+    }
+  }
+  
+  function init(videoId) {
+    console.info(videoId);
+    video = document.getElementById(videoId);
+    container = document.getElementById('container-' + id);
+    console.info(video);
+    console.log(container);
+    video.addEventListener('ended', _endVideo, false);
+    video.addEventListener('pause', _pauseVideo, false);
+    $(container).show();
+    video.play();
+    _fullScreen();
+  }
+  return {
+    init: init
+  };
+}();
+
+
+
+$('.lnk-video').click(function (evt) {
+  evt.preventDefault();
+  console.info('click href');
+  var videoId = this.getAttribute('data-video');
+  console.info(videoId);
+  // var video = document.getElementById(videoId);
+  var vid = html5Video.init(videoId);
+});
+
+</script>
+
 
 </body>
 
