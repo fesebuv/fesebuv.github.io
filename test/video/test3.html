@@ -121,6 +121,8 @@
         
         var video = document.getElementById(videoId);
         
+        console.info(video);
+        
         video.bind('pause', function(){
           console.warn('video paused');
         });
