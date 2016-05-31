@@ -25,6 +25,14 @@
 
 <a id="link" href="#">video</a>
 
+<div id="container-video2">
+  <video id="video2" controls>
+    <source src="https://subscribe.allure.com/circulation/allure/media/__Grace_Hartzel_Final_4.14.161.mp4" type="video/mp4">
+  </video>
+</div>
+
+<a class="lnk-video" href="#" data-video="video2">Open Video</a>
+
 
 
 
@@ -101,6 +109,22 @@
     
     function init(){
       console.info('init');
+      
+      $('lnk-video').click(funciton(){
+        console.info('click href');
+        
+        var videoId = this.getAttribute('data-video');
+        
+        console.info(videoId);
+        
+        var video = document.getElementById(videoId);
+        
+        video.bind('pause', function(){
+          console.warn('video paused');
+        };
+        
+      });
+      
     }
     
     return {
