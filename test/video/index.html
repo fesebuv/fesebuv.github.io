@@ -27,6 +27,10 @@
 
 <script>
 
+  var lnk = document.getElementById('link');
+  var container =document.getElementById("containervideo"); 
+  var elem = document.getElementById("myvideo");
+
   function fullScreen(container, elem){
     container.style.display = 'block';
     if (elem.requestFullscreen) {
@@ -49,12 +53,15 @@
     fullScreen(container, elem);
   }
 
-  var lnk = document.getElementById('link');
+  function endVideo(){
+    container.style.display = 'none';
+  }
+
   
   
   lnk.addEventListener("click", test, false);
+  elem.addEventListener('ended', endVideo, false)''
 
-  
   
 </script>
 
