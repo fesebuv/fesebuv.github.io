@@ -72,7 +72,11 @@
     exitFullScreen();
   }
   
-
+  function pauseVideo() { 
+    
+    if (!elem.webkitDisplayingFullscreen)
+        endVideo(); 
+    }
 
   
   function test1(evt){
@@ -86,6 +90,7 @@
   
   lnk.addEventListener("click", test, false);
   elem.addEventListener('ended', endVideo, false);
+  elem.addEventListener('paused', pauseVideo, false);
   document.addEventListener('keypress', test1, false);
 
   
