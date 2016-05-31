@@ -149,7 +149,8 @@
     function init(){
       console.info('init');
       
-      $('.lnk-video').click(function(){
+      $('.lnk-video').click(function(evt){
+        evt.preventDefault();
         console.info('click href');
         
         var videoId = this.getAttribute('data-video');
