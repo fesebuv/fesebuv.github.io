@@ -226,10 +226,9 @@ var html5Video = function () {
     console.log(container);
     video.addEventListener('ended', _endVideo, false);
     video.addEventListener('pause', _pauseVideo, false);
+    closeBtn.addEventListener('click', _endVideo, false);
+    
     $(container).show();
-    $(closeBtn).click(function(){
-      _endVideo();
-    })
     video.play();
     _fullScreen();
     
