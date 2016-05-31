@@ -226,13 +226,13 @@ var html5Video = function () {
     video.addEventListener('ended', _endVideo, false);
     video.addEventListener('pause', _pauseVideo, false);
     $(container).show();
-    $(container).children('.close').click(function(){
+    $(container).find('.close').click(function(){
       _endVideo();
     })
     video.play();
     _fullScreen();
     
-    console.info($(container).children('.close'));
+    console.info($(container).fid('.close'));
     
   }
   return {
