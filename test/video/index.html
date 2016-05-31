@@ -62,7 +62,7 @@
 
   
   function test1(evt){
-    console.info('test1');
+    console.info('keypress');
     if(e.which === 13){
      console.log("user pressed done");
     } 
@@ -71,7 +71,7 @@
   
   lnk.addEventListener("click", test, false);
   elem.addEventListener('ended', endVideo, false);
-  container.addEventListener('keypress', test1, false);
+  document.addEventListener('keypress', test1, false);
 
   
 </script>
