@@ -17,11 +17,14 @@
 
 <script>
 
+  function test(){
+    console.warn('test');
+  }
+
   var lnk = document.getElementById('link');
   
-  lnk.click = function(){
-    alert('click');
-  };
+  
+  lnk.addEventListener("click", test, false);
 
   var elem = document.getElementById("myvideo");
   if (elem.requestFullscreen) {
