@@ -12,6 +12,38 @@
   .container-video {
     display:none;
   }
+  
+  
+  .box {
+  margin: 20px;
+  background: #DDD;
+  float: left;
+  border-radius: 50%;
+}
+
+
+.box1 { width: 200px; }
+.box2 { width: 100px; }
+.box3 { width: 20px; }
+
+svg {
+  border: 1px solid red;
+  display: block;
+}
+
+.close-x {
+  stroke: black;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-width: 5;
+}
+
+
+button {
+  width: 100px;
+  height: 100px;
+  padding: 0;
+}
 </style>
 
 </head>
@@ -19,6 +51,11 @@
 <body>
 
 <div id="container-video1" class="container-video">
+  <div class="box box-3">
+  <svg viewbox="0 0 40 40">
+    <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+  </svg>
+</div>
   <video id="video1" controls>
     <source src="https://subscribe.allure.com/circulation/allure/media/4.15.16_Nick_v1.mp4" type="video/mp4">
   </video>
