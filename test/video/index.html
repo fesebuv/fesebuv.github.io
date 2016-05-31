@@ -5,20 +5,46 @@
 <head>
 <meta charset="UTF-8">
 <title>Video Test</title>
+
+<style>
+  #containervideo{
+    display:none;
+  }
+</style>
+
 </head>
 
 <body>
-<video id="myvideo" controls>
-  <source src="https://subscribe.allure.com/circulation/allure/media/__Grace_Hartzel_Final_4.14.161.mp4" type="video/mp4">
-</video>
+<div id="containervideo">
+  <video id="myvideo" controls>
+    <source src="https://subscribe.allure.com/circulation/allure/media/__Grace_Hartzel_Final_4.14.161.mp4" type="video/mp4">
+  </video>
+</div>
+
 
 <a id="link" href="#">video</a>
 
 
 <script>
 
+  function fullScreen(elem){
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    }
+    elem.play();
+  }
+
   function test(){
+    
     console.warn('test');
+    var elem = document.getElementById("myvideo");
+    fullScreen(elem);
   }
 
   var lnk = document.getElementById('link');
@@ -26,16 +52,8 @@
   
   lnk.addEventListener("click", test, false);
 
-  var elem = document.getElementById("myvideo");
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.msRequestFullscreen) {
-    elem.msRequestFullscreen();
-  } else if (elem.mozRequestFullScreen) {
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) {
-    elem.webkitRequestFullscreen();
-  }
+  
+  
 </script>
 
 
