@@ -57,11 +57,25 @@
   function endVideo(){
     container.style.display = 'none';
   }
+  
+//   $('someElem').bind("keypress", function(e){
+//   // enter key code is 13
+//   if(e.which === 13){
+//     console.log("user pressed done");
+//     } 
+// })
 
+  
+  function test1(evt){
+    if(e.which === 13){
+     console.log("user pressed done");
+    } 
+  }
   
   
   lnk.addEventListener("click", test, false);
   elem.addEventListener('ended', endVideo, false);
+  container.addEventListener('keypress', test1, false);
 
   
 </script>
