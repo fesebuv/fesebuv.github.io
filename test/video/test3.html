@@ -53,7 +53,7 @@ svg {
 <body>
 
 <div id="container-video1" class="container-video">
-  <div class="box box-3 close">
+  <div class="box box-3 close" id="close-video1">
     <svg viewbox="0 0 40 40">
       <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
     </svg>
@@ -65,7 +65,7 @@ svg {
 
 
 <div id="container-video2" class="container-video">
-  <div class="box box-3">
+  <div class="box box-3" id="close-video2">
     <svg viewbox="0 0 40 40">
       <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
     </svg>
@@ -221,12 +221,13 @@ var html5Video = function () {
     console.info(videoId);
     video = document.getElementById(videoId);
     container = document.getElementById('container-' + videoId);
+    var closeBtn = document.getElementById('close-'+videoId);
     console.info(video);
     console.log(container);
     video.addEventListener('ended', _endVideo, false);
     video.addEventListener('pause', _pauseVideo, false);
     $(container).show();
-    $(container).find('.close').click(function(){
+    $(closeBtn).click(function(){
       _endVideo();
     })
     video.play();
