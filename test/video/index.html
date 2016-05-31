@@ -27,7 +27,8 @@
 
 <script>
 
-  function fullScreen(elem){
+  function fullScreen(container, elem){
+    container.style.display = 'block';
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
     } else if (elem.msRequestFullscreen) {
@@ -43,8 +44,9 @@
   function test(){
     
     console.warn('test');
+    var container =document.getElementById("containervideo"); 
     var elem = document.getElementById("myvideo");
-    fullScreen(elem);
+    fullScreen(container, elem);
   }
 
   var lnk = document.getElementById('link');
