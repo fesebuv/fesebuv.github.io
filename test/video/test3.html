@@ -28,7 +28,7 @@
   position: absolute;
   border-radius: 50%;
   top: 10px;
-  right: 0;
+  right: 10px;
   width: 5%;
 }
 
@@ -53,7 +53,7 @@ svg {
 <body>
 
 <div id="container-video1" class="container-video">
-  <div class="box box-3">
+  <div class="box box-3 close">
     <svg viewbox="0 0 40 40">
       <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
     </svg>
@@ -226,6 +226,9 @@ var html5Video = function () {
     video.addEventListener('ended', _endVideo, false);
     video.addEventListener('pause', _pauseVideo, false);
     $(container).show();
+    $(container).children('.close').click(function(){
+      _endVideo();
+    })
     video.play();
     _fullScreen();
   }
