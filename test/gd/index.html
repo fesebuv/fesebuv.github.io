@@ -399,7 +399,6 @@
       }
     }
     </style>
-</style>
 <body>
   <img src="%%VIEW_URL_UNESC%%" style="display:none;" height="1" with="1">
   <div class="wrapper center-wrapper open">
@@ -412,10 +411,12 @@
         <img src="" id="side-image"/>
       </div>
 
-      <div class="content  center-wrapper">
+      <div class="content center-wrapper">
 
+
+        <!-- 
         <form method="POST" class="form" onsubmit="return validateStep1()"
-        action="https://user-service.condenastdigital.com/open/newsletter/entries">
+        action="https://user-service.condenastdigital.com/open/newsletter/entries" style="display:none">
 
           <section class="step1">
           <h1 class="h1">Never Miss a Shot.</h1>
@@ -430,8 +431,8 @@
               <p>Expert advice from the best teachers and players</p>
             </div>
             <p class="error hide">Please enter a valid email address</p>
-            <input class="input email" type="email" value="" placeholder="Enter email address" id="email" tabindex="1"><!--
-            --><button type="button" class="btn-submit btn-email" tabindex="2">SIGN UP</button>
+            <input class="input email" type="email" value="" placeholder="Enter email address" id="email" tabindex="1"><!-
+            -><button type="button" class="btn-submit btn-email" tabindex="2">SIGN UP</button>
             <p class="legal">
               Will be used in accordance with our&nbsp;
               <a href="http://www.condenast.com/privacy-policy#privacypolicy">Privacy Policy</a>
@@ -443,7 +444,7 @@
             <p>You will start receiving our newsletter now.</p>
             <a class="btn-submit btn-home" tabindex="2" href="http://golfdigest.com">RETURN TO HOMEPAGE </a>
           </section>
-        </form>
+        </form> -->
       </div><!-- content -->
     </div><!-- container -->
   </div><!-- wrapper -->
@@ -483,7 +484,10 @@
         imageSource = IMAGES[0];
       }
 
-      document.getElementById('side-image').src = 'https://cns.condenastdigital.com/services/ads/creative-assets/conde-house/newsletter-signups/golfdigest/' + imageSource;
+      // document.getElementById('side-image').src = 'https://cns.condenastdigital.com/services/ads/creative-assets/conde-house/newsletter-signups/golfdigest/' + imageSource;
+
+      document.getElementById('side-image').src = 'https://cnissues.atlassian.net/secure/attachment/43322/GLF_BritishOpen_Interstitial560x390_v2.jpeg';
+
      }
 
      /**
