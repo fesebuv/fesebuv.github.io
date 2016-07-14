@@ -1,36 +1,18 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NJ Transit Schedules</title>
+</head>
 
+<body>
 
-<button onclick="openWindow()" target="_blank">Pop Up Window</button>
+  <ul>
+    <li><a href="/test/test/njtransit" target="_blank">njtransit info</a></li>
+    
+  </ul>
 
+</body>
 
-<script>
-  var ref;
-  var interval;
-  var domain = 'http://fesebuv.github.io';
-  
-  function openWindow(){
-    ref = window.open('popup.html', '_blank');
-    setMessage();
-  }
-  
-  function setMessage(){
-		
-		//periodical message sender
-
-		interval = window.setInterval(function(){
-			var message = 'Hello!  The time is: ' + (new Date().getTime());
-			console.log('blog.local:  sending message:  ' + message);
-			ref.postMessage(message,domain); //send the message and target URI
-		},600);
-}
-
-//listen to holla back
-window.addEventListener('message',function(event) {
-	if(event.origin !== 'http://fesebuv.github.io') return;
-	console.log('received response:  ',event.data);
-	window.clearInterval(interval);
-	ref.close();
-},false);
-
-</script>
+</html>
