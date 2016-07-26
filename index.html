@@ -17,6 +17,16 @@
     box-sizing: border-box;
   }
   
+  .row:before,
+  .row:after {
+    content: " ";
+    display: table;
+  }
+
+  .row:after {
+    clear: both;
+  }
+  
   .profile, 
   .main-content {
     
