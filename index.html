@@ -112,8 +112,9 @@
 
   .container{
     background-color: #FFFFFF;
-    margin: 40px auto 0 auto;
+    border: #CCCCCC;
     height: 90vh;
+    margin: 40px auto 0 auto;
     width: 90vw;
   }
   
@@ -126,12 +127,17 @@
     padding: 60px 0 60px 0;
   }
   
-  .profile-image, 
+  .profile-image-holder, 
   .profile-details {
   }
   
-  .profile-image{
+  .profile-image-holder{
     text-align:center;
+  }
+  
+  .profile-image{
+    width: 200px;
+    border-radius: 1px;
   }
   
   .profile-details h1{
@@ -147,8 +153,10 @@
 
   <div class="container">
     <div class="profile row">
-      <div class="profile-image column column-6">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=fb&w=200&h=200">
+      <div class="profile-image-holder column column-6">
+        <div class="profile-image">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=fb&w=200&h=200">
+        </div>
       </div>
       <div class="profile-details column column-6">
         <h1>Text Here</h1>
