@@ -1,0 +1,28 @@
+{
+  "name": "fesebuv",
+  "version": "0.0.1",
+  "description": "fesebuv",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ws"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fesebuv/fesebuv.github.io.git"
+  },
+  "author": "Felipe S. Buenano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fesebuv/fesebuv.github.io/issues"
+  },
+  "devDependencies": {
+    "local-web-server": "^1.2.6"
+  },
+  "dependencies": {
+    "local-web-server": "^1.2.6"
+  }
+}
