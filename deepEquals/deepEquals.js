@@ -1,7 +1,6 @@
 'use strict';
 
-console.log(null === null);
-console.log('=======');
+var equal = require('deep-equal');
 
 var expect = function(expected, actual){
   console.log('expected: %s | actual: %s | assertions is: %s',expected, actual, expected === actual);
@@ -16,11 +15,16 @@ var nicePrint = function(o1, o2, isEqual) {
 
 
 var deepEquals = function (o1, o2) {
-  
-  
 
-  if(o1 === o2){
-    return true;
+  // console.log(o1);
+  // console.log(o2);
+
+  if(null === o1 && null === o2){
+    return o1 === o2;
+  }  
+
+  if(o1 === 'string' || o1 === 'Number' ) {
+    return o1 === o2;
   }
 
   if(!o2) {
@@ -32,11 +36,18 @@ var deepEquals = function (o1, o2) {
   var keys = Object.keys(o1);
   var len = keys.length;
 
+  // console.log('keys----');
+  // console.log(keys);
+  // console.log('len----');
+  // console.log(len);
+
   for(var i=0; i<len; i++) {
 
     var key = keys[i];
     var value1 = o1[key];
     var value2 = o2[key];
+
+
 
     if(!o2.hasOwnProperty(key)) {
       return false;
@@ -44,16 +55,12 @@ var deepEquals = function (o1, o2) {
     
     // console.log('value: %s, type:%s', value1, typeof value1);
     // console.log('value: %s, type:%s', value2, typeof value2);
-     
+    // console.log('is object? %s', typeof value1 === 'object')
     if(typeof value1 === 'object') {
-      // console.log('iterate again:%s %s', value1, value2);
-      deepEquals(value1, value1);
-    } else {
-      // console.log('value1: %s, value2: %s, equal? %s', value1, value2, value1===value2 );
-      if(value1 !== value2){
-        return false;
-      }
-    } 
+      return deepEquals(value1, value2);
+    } else if(value1 !== value2) {
+      return false;
+    }
   }
   
   return true;
@@ -96,17 +103,19 @@ var obj5 = {
 var obj10 = {
   user : {
     obj1
-  },
-  something: true,
-  somethingElse: false
+  }
+  // ,
+  // something: true,
+  // somethingElse: false
 }
 
 var obj20 = {
   user : {
     obj5
-  },
-  something: true,
-  somethingElse: false
+  }
+  // ,
+  // something: true,
+  // somethingElse: false
 }
 
 var obj21 = {
@@ -171,13 +180,46 @@ var obj31 = {
 // nicePrint(obj30, obj31,deepEquals(obj30, obj31));
 
 
-expect(false, deepEquals(obj1, obj2));
-expect(false, deepEquals(obj1, obj3));
-expect(false, deepEquals(obj1, obj4));
-expect(true, deepEquals(obj1, obj5));
-expect(true,deepEquals(obj10, obj20));
-expect(false,deepEquals(obj10, obj21));
-expect(false,deepEquals(obj10, obj22));
-expect(true,deepEquals(obj30, obj31));
-expect(false,deepEquals(obj30, null));
-expect(true,deepEquals(null, null));
+// expect(false, deepEquals(obj1, obj2));
+// expect(false, deepEquals(obj1, obj3));
+// expect(false, deepEquals(obj1, obj4));
+// expect(true, deepEquals(obj1, obj5));
+// expect(true,deepEquals(obj10, obj20));
+// expect(false,deepEquals(obj10, obj21));
+// expect(false,deepEquals(obj10, obj22));
+// expect(true,deepEquals(obj30, obj31));
+// expect(false,deepEquals(obj30, null));
+// expect(true,deepEquals(null, null));
+
+// console.log(equal(obj1,obj2, {strict:true}) === deepEquals(obj1, obj2));
+// console.log(equal(obj1, obj3, {strict:true}) === deepEquals(obj1, obj3));
+// console.log(equal(obj1, obj4, {strict:true}) === deepEquals(obj1, obj4))
+// console.log(equal(obj1, obj5, {strict:true}) === deepEquals(obj1, obj5));
+// console.log(equal(obj10, obj20, {strict:true}) === deepEquals(obj10, obj20));
+
+
+function compare(o1, o2) {
+
+  var nodeEqual = equal(o1, o2, {strict:true});
+  var myEqual = deepEquals(o1, o2)
+  var c = nodeEqual === myEqual;
+
+  // console.log('node.deepEqual: %s', nodeEqual);
+  // console.log('deepEquals:%s', myEqual)
+  console.log('===> ', c);
+
+  return c;
+}
+
+compare(obj1, obj2);
+compare(obj1, obj3);
+compare(obj1, obj4);
+compare(obj1, obj5);
+compare(obj10, obj20);
+compare(obj10, obj21);
+compare(obj10, obj22);
+compare(obj30, obj31);
+compare(obj30, null);
+compare(null, null);
+
+
